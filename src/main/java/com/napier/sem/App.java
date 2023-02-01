@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class App
 {
@@ -12,10 +13,12 @@ public class App
 
         // Connect to database
         a.connect();
-        // Get Employee
-        Employee emp = a.getEmployee(255530);
-        // Display results
-        a.displayEmployee(emp);
+        // Get countries
+        ArrayList<Country> countries = a.getCountry();
+        // Print countries
+        for (Country c : countries){
+            System.out.println(c);
+        }
 
         // Disconnect from database
         a.disconnect();
@@ -46,7 +49,7 @@ public class App
                 // Wait a bit for db to start
                 Thread.sleep(30000);
                 // Connect to database
-                con = DriverManager.getConnection("jdbc:mysql://db:3306/employees?useSSL=false", "root", "example");
+                con = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
                 break;
             }
@@ -80,52 +83,42 @@ public class App
             }
         }
     }
-    public Employee getEmployee(int ID)
+    public ArrayList<Country> getCountry()
     {
         try
         {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT emp_no, first_name, last_name "
-                            + "FROM employees "
-                            + "WHERE emp_no = " + ID;
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new employee if valid.
-            // Check one is returned
-            if (rset.next())
             {
-                Employee emp = new Employee();
-                emp.emp_no = rset.getInt("emp_no");
-                emp.first_name = rset.getString("first_name");
-                emp.last_name = rset.getString("last_name");
-                return emp;
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                // Create string for SQL statement
+                String strSelect =
+                        "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital "
+                                + "FROM country ORDER BY country.population DESC";
+
+                // Execute SQL statement
+                ResultSet rset = stmt.executeQuery(strSelect);
+                // create new country and set variables from db
+                ArrayList<Country> country = new ArrayList<Country>();
+                while (rset.next())
+                {
+                    Country cnt = new Country();
+                    cnt.setCode(rset.getString("country.code"));
+                    cnt.setName(rset.getString("country.name"));
+                    cnt.setContinent(rset.getString("country.continent"));
+                    cnt.setRegion(rset.getString("country.region"));
+                    cnt.setPopulation(rset.getInt("country.population"));
+                    cnt.setCapital(rset.getString("country.capital"));
+                    country.add(cnt);
+                }
+                return country;
+
             }
-            else
-                return null;
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get employee details");
+            System.out.println("Failed to get country details");
             return null;
         }
     }
-    public void displayEmployee(Employee emp)
-    {
-        if (emp != null)
-        {
-            System.out.println(
-                    emp.emp_no + " "
-                            + emp.first_name + " "
-                            + emp.last_name + "\n"
-                            + emp.title + "\n"
-                            + "Salary:" + emp.salary + "\n"
-                            + emp.dept_name + "\n"
-                            + "Manager: " + emp.manager + "\n");
-        }
-    }
-
 }
