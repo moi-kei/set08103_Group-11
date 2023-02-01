@@ -1,7 +1,7 @@
 - **to be implemented** \
   create classes for country, city, capital, etc.
   get data into a state that it can be queried using sql
-
+  integrate ways to query the databse for required info
 
 - **reports to be generated** \
   All the countries in the world organised by largest population to smallest.\
