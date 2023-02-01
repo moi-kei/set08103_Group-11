@@ -1,8 +1,8 @@
 ![workflow](https://github.com/moi-kei/set08103_Group11/actions/workflows/main.yml/badge.svg)
 
-![[LICENSE](https://img.shields.io/github/license/moi-kei/sem.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group11/blob/main/LICENSE)
+![[LICENSE](https://img.shields.io/github/license/moi-kei/set08103_Group-11.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/blob/main/LICENSE)
 
-![[Releases](https://img.shields.io/github/release/moi-kei/sem/all.svg?style=flat-square)](https://github.com/moi-kei/sem/releases)
+![[Releases](https://img.shields.io/github/release/moi-kei/set08103_Group-11/all.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/releases)
 
 this is a group project for software engineering methods
 
