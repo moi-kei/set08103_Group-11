@@ -9,7 +9,7 @@ this is a group project for software engineering methods
 **Group members**
 - Michael Mackenzie
 - Nweke Success
-- _
+- Cameron Campbell
 - _
 
 Coursework Specification
