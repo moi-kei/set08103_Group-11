@@ -8,7 +8,7 @@ this is a group project for software engineering methods
 
 **Group members**
 - Michael Mackenzie
-- _
+- Nweke Success
 - _
 - _
 
