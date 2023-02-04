@@ -12,11 +12,12 @@ SOFTWARE ENGINEERING METHODS GROUP PROJECT
 - Cameron Campbell
 - _
 
-Requirements
+Content and Requirements
+
 This project is to be worked on as a Scrum team.
+
 You work for an organisation that requires reporting on population information. You have been tasked with designing and implementing a new system to allow easy access to this population information. The organisation has provided you with an SQL database to work from.
 
-Contents
 The organisation has asked for the following reports to be generated:
 
 All the countries in the world organised by largest population to smallest.
