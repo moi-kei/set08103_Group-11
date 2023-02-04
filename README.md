@@ -4,7 +4,7 @@
 
 [![Releases](https://img.shields.io/github/release/moi-kei/set08103_Group-11/all.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/releases)
 
-SOFTWARE ENGINEERING METHODS GROUP PROJECT
+**SOFTWARE ENGINEERING METHODS GROUP PROJECT**
 
 **Group members**
 - Michael Mackenzie
@@ -12,7 +12,7 @@ SOFTWARE ENGINEERING METHODS GROUP PROJECT
 - Cameron Campbell
 - _
 
-Content and Requirements
+**Specification**
 
 This project is to be worked on as a Scrum team.
 
