@@ -4,7 +4,7 @@
 
 [![Releases](https://img.shields.io/github/release/moi-kei/set08103_Group-11/all.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/releases)
 
-this is a group project for software engineering methods
+SOFTWARE ENGINEERING METHODS GROUP PROJECT
 
 **Group members**
 - Michael Mackenzie
@@ -12,11 +12,11 @@ this is a group project for software engineering methods
 - Cameron Campbell
 - _
 
-Coursework Specification
-You will work on the project as a Scrum team. Details on Scrum are provided in Lecture 2, including an FAQ on how to apply Scrum in the module.
+Requirements
+This project is to be worked on as a Scrum team.
+You work for an organisation that requires reporting on population information. You have been tasked with designing and implementing a new system to allow easy access to this population information. The organisation has provided you with an SQL database to work from.
 
-You work for an organisation that requires reporting on population information. You have been tasked with designing and implementing a new system to allow easy access to this population information. The organisation has provided you with an SQL database to work from available here.
-
+Contents
 The organisation has asked for the following reports to be generated:
 
 All the countries in the world organised by largest population to smallest.
