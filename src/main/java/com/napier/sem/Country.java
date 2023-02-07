@@ -1,11 +1,7 @@
 package com.napier.sem;
 
 /**
- * Class that represents a Country.
- *
- * @author  Lee, Lewis Watson
- * @version 2.0
- * @since   2021-04-01
+ * Class representing a Country.
  */
 public class Country
 {
@@ -42,18 +38,18 @@ public class Country
 
     // Constructors
     /**
-     * Blank Country Constructor
+     * Default Constructor
      */
     public Country() {}
 
     /**
      * Country Constructor
      * @param code Country's Code
-     * @param name Country's Name
-     * @param continent Country's Continent
-     * @param region Country's Region
-     * @param population Country's Population
-     * @param capital Country's Capital
+     * @param name Name of the country
+     * @param continent continent where the country is
+     * @param region region of the world of the country
+     * @param population Population of the country
+     * @param capital Country's Capital city
      */
     public Country(String code, String name, String continent, String region, int population, String capital) {
         this.code = code;
@@ -75,7 +71,6 @@ public class Country
 
     /**
      * Sets code property
-     * @param code Country's Country Code
      */
     public void setCode(String code) {
         this.code = code;
@@ -90,7 +85,6 @@ public class Country
 
     /**
      * Sets Name Property
-     * @param name Country's Name
      */
     public void setName(String name) {
         this.name = name;
@@ -105,7 +99,6 @@ public class Country
 
     /**
      * Sets continent property
-     * @param continent
      */
     public void setContinent(String continent) {
         this.continent = continent;
@@ -120,7 +113,6 @@ public class Country
 
     /**
      * Sets region property
-     * @param region
      */
     public void setRegion(String region) {
         this.region = region;
@@ -134,8 +126,7 @@ public class Country
     }
 
     /**
-     * RSets population property
-     * @param population
+     * Sets population property
      */
     public void setPopulation(int population) {
         this.population = population;
@@ -150,7 +141,6 @@ public class Country
 
     /**
      * Sets capital property
-     * @param capital
      */
     public void setCapital(String capital) {
         this.capital = capital;
@@ -161,13 +151,6 @@ public class Country
      */
     @Override
     public String toString() {
-        return "Country{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", continent='" + continent + '\'' +
-                ", region='" + region + '\'' +
-                ", population=" + population +
-                ", capital='" + capital + '\'' +
-                '}';
+        return code + " | " + name + " | " + continent + " | " + region + " | " + population + " | " + capital;
     }
 }

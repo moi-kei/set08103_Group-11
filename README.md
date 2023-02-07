@@ -1,4 +1,4 @@
-![workflow](https://github.com/moi-kei/set08103_Group11/actions/workflows/main.yml/badge.svg)
+![workflow](https://github.com/moi-kei/set08103_Group-11/actions/workflows/main.yml/badge.svg)
 
 [![LICENSE](https://img.shields.io/github/license/moi-kei/set08103_Group-11.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/blob/master/LICENSE)
 
@@ -10,7 +10,6 @@
 - Michael Mackenzie
 - Nweke Success
 - Cameron Campbell
-- _
 
 **Specification**
 

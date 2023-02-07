@@ -13,12 +13,9 @@ public class App
 
         // Connect to database
         a.connect();
-        // Get countries
-        ArrayList<Country> countries = a.getCountry();
-        // Print countries
-        for (Country c : countries){
-            System.out.println(c);
-        }
+
+        //print all countries in the world db
+        a.printAllCountries(a.getAllCountries());
 
         // Disconnect from database
         a.disconnect();
@@ -83,7 +80,11 @@ public class App
             }
         }
     }
-    public ArrayList<Country> getCountry()
+
+    /**
+     * @return all countries in the world db in order of population from largest to smallest
+     */
+    public ArrayList<Country> getAllCountries()
     {
         try
         {
@@ -97,18 +98,19 @@ public class App
 
                 // Execute SQL statement
                 ResultSet rset = stmt.executeQuery(strSelect);
-                // create new country and set variables from db
-                ArrayList<Country> country = new ArrayList<Country>();
+                // Create arrayList for countries
+                ArrayList<Country> country = new ArrayList<>();
+                // Create new country and assign variables
                 while (rset.next())
                 {
-                    Country cnt = new Country();
-                    cnt.setCode(rset.getString("country.code"));
-                    cnt.setName(rset.getString("country.name"));
-                    cnt.setContinent(rset.getString("country.continent"));
-                    cnt.setRegion(rset.getString("country.region"));
-                    cnt.setPopulation(rset.getInt("country.population"));
-                    cnt.setCapital(rset.getString("country.capital"));
-                    country.add(cnt);
+                    Country c = new Country();
+                    c.setCode(rset.getString("country.code"));
+                    c.setName(rset.getString("country.name"));
+                    c.setContinent(rset.getString("country.continent"));
+                    c.setRegion(rset.getString("country.region"));
+                    c.setPopulation(rset.getInt("country.population"));
+                    c.setCapital(rset.getString("country.capital"));
+                    country.add(c);
                 }
                 return country;
 
@@ -119,6 +121,17 @@ public class App
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
             return null;
+        }
+    }
+    public void printAllCountries(ArrayList<Country> countries){
+
+        // Print headers
+        System.out.println("All the countries in the world from largest population to smallest. \r\n");
+        System.out.println(String.format("%-3s %-46s %-15s %-30s %15s %-9s", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital"));
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
+        // Print countries
+        for (Country c : countries){
+            System.out.println(String.format("%-3s %-46s %-15s %-30s %15s %-9s", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital()));
         }
     }
 }
