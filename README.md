@@ -54,3 +54,5 @@ You work for an organisation that requires reporting on population information. 
 | 33 | The population of a country |  |  |
 | 34 | The population of a district |  |  |
 | 35 | The population of a city |  |  |
+| 36 | The number of people who speak Chinese, English, Hindi, Spanish or Arabic from greatest number to smallest |  |  |
+| 37 | The percentage of the world population |  |  |
