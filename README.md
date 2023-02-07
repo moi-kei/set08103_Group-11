@@ -48,3 +48,9 @@ You work for an organisation that requires reporting on population information. 
 | 23 | The population of people, people living in cities, and people not living in cities in each continent |  |  |
 | 28 | The population of people, people living in cities, and people not living in cities in each region |  |  |
 | 29 | The population of people, people living in cities, and people not living in cities in each country |  |  |
+| 30 | The population of the world |  |  |
+| 31 | The population of a continent |  |  |
+| 32 | The population of a region |  |  |
+| 33 | The population of a country |  |  |
+| 34 | The population of a district |  |  |
+| 35 | The population of a city |  |  |
