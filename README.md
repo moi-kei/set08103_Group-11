@@ -19,7 +19,7 @@ You work for an organisation that requires reporting on population information. 
 
 **Implementation**
 
-36 requirements have been successfully met, which is 100%
+37 requirements have been successfully met, which is 100%
 
 | ID | OBJECTIVE | OBJECTIVE MET | SCREENSHOT |
 | -- | --------- | ------------- | ---------- |
