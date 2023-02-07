@@ -14,6 +14,7 @@ This policy is applicable to all team members regardless of their role played in
 The rules of acceptable behaviour must be made clear by team members in addition to responding to just about any improper behaviour with suitable and corrective action. The liberty to remove, edit, or reject comments, commits, code and other contributions that do not adhere to the Code of Conduct is reserved for team members.
 
 **Code of Conduct Standards**
+------------------------------------------------------------------------------------------------
 
   Acceptable Behaviour
   - Professionalism during weekly meetings and code reviews.
