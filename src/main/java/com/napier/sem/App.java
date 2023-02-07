@@ -22,7 +22,7 @@ public class App
     }
 
     /**
-     * Connect to the MySQL database.
+     * Connect to the MySQL database
      */
     public void connect()
     {
@@ -63,7 +63,7 @@ public class App
     }
 
     /**
-     * Disconnect from the MySQL database.
+     * Disconnect from the MySQL database
      */
     public void disconnect()
     {
