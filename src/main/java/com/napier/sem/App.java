@@ -52,7 +52,7 @@ public class App
             }
             catch (SQLException sqle)
             {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println("Failed to connect to database attempt " + i);
                 System.out.println(sqle.getMessage());
             }
             catch (InterruptedException ie)
@@ -82,6 +82,10 @@ public class App
     }
 
     /**
+     * Creates and exucutes a sql query that gets all countries in order of population
+     * constructs a country, assigns variables based on sql entry
+     * then adds the country to an Arraylist which is returned
+     *
      * @return all countries in the world db in order of population from largest to smallest
      */
     public ArrayList<Country> getAllCountries()
@@ -99,7 +103,7 @@ public class App
                 // Execute SQL statement
                 ResultSet rset = stmt.executeQuery(strSelect);
                 // Create arrayList for countries
-                ArrayList<Country> country = new ArrayList<>();
+                ArrayList<Country> countries = new ArrayList<>();
                 // Create new country and assign variables
                 while (rset.next())
                 {
@@ -110,9 +114,9 @@ public class App
                     c.setRegion(rset.getString("country.region"));
                     c.setPopulation(rset.getInt("country.population"));
                     c.setCapital(rset.getString("country.capital"));
-                    country.add(c);
+                    countries.add(c);
                 }
-                return country;
+                return countries;
 
             }
         }
@@ -123,15 +127,21 @@ public class App
             return null;
         }
     }
+
+    /**
+     * prints all countries contained in the ArrayList that is supplied to it
+     *
+     * @param countries Ann ArrayList of countries
+     */
     public void printAllCountries(ArrayList<Country> countries){
 
         // Print headers
         System.out.println("All the countries in the world from largest population to smallest. \r\n");
-        System.out.println(String.format("%-3s %-46s %-15s %-30s %-15s %-9s", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital"));
-        System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
+        System.out.printf("%-3s %-46s %-15s %-29s %-15s %-9s%n", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital");
+        System.out.println("-----|----------------------------------------------|---------------|------------------------------|---------------|--------");
         // Print countries
         for (Country c : countries){
-            System.out.println(String.format("%-3s %-46s %-15s %-30s %-15s %-9s", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital()));
+            System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
         }
     }
 }
