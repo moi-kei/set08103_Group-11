@@ -127,11 +127,11 @@ public class App
 
         // Print headers
         System.out.println("All the countries in the world from largest population to smallest. \r\n");
-        System.out.println(String.format("%-3s %-46s %-15s %-30s %15s %-9s", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital"));
+        System.out.println(String.format("%-3s %-46s %-15s %-30s %-15s %-9s", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital"));
         System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
         // Print countries
         for (Country c : countries){
-            System.out.println(String.format("%-3s %-46s %-15s %-30s %15s %-9s", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital()));
+            System.out.println(String.format("%-3s %-46s %-15s %-30s %-15s %-9s", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital()));
         }
     }
 }
