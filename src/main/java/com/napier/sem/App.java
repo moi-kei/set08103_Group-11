@@ -82,7 +82,7 @@ public class App
     }
 
     /**
-     * Creates and exucutes a sql query that gets all countries in order of population
+     * Creates and executes a sql query that gets all countries in order of population
      * constructs a country, assigns variables based on sql entry
      * then adds the country to an Arraylist which is returned
      *
