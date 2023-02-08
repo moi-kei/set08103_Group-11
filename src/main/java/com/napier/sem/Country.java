@@ -5,8 +5,6 @@ package com.napier.sem;
  */
 public class Country
 {
-
-    // Class Properties
     /**
      * Country Code
      */
@@ -41,25 +39,6 @@ public class Country
      * Default Constructor
      */
     public Country() {}
-
-    /**
-     * Country Constructor
-     * @param code Country's Code
-     * @param name Name of the country
-     * @param continent continent where the country is
-     * @param region region of the world of the country
-     * @param population Population of the country
-     * @param capital Country's Capital city
-     */
-    public Country(String code, String name, String continent, String region, int population, String capital) {
-        this.code = code;
-        this.name = name;
-        this.continent = continent;
-        this.region = region;
-        this.population = population;
-        this.capital = capital;
-    }
-
 
     // Getters and Setters
     /**
@@ -151,6 +130,13 @@ public class Country
      */
     @Override
     public String toString() {
-        return code + " | " + name + " | " + continent + " | " + region + " | " + population + " | " + capital;
+        return "Country{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", continent='" + continent + '\'' +
+                ", region='" + region + '\'' +
+                ", population=" + population +
+                ", capital='" + capital + '\'' +
+                '}';
     }
 }
