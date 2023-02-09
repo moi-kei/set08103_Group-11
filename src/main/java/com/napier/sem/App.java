@@ -14,8 +14,17 @@ public class App
         // Connect to database
         a.connect();
 
+        //create ArrayList containing all countries
+        ArrayList<Country> countries = a.getAllCountries();
         // Print all countries in the world db
-        a.printAllCountries(a.getAllCountries());
+        a.printAllCountries(countries);
+        System.out.println("\r\n \r\n");
+        //print all countries in a continent (Europe can be changed to whichever continent)
+        a.printCountriesContinent(countries, "Europe");
+        System.out.println("\r\n \r\n");
+        //print all countries in a continent (SA can be changed to whichever continent)
+        a.printCountriesRegion(countries, "South America");
+        System.out.println("\r\n \r\n");
 
         // Disconnect from database
         a.disconnect();
@@ -73,6 +82,7 @@ public class App
             {
                 // Close connection
                 con.close();
+                System.out.println("Successfully closed connection to database");
             }
             catch (Exception e)
             {
@@ -97,8 +107,8 @@ public class App
                 Statement stmt = con.createStatement();
                 // Create string for SQL statement
                 String strSelect =
-                        "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, country.Capital "
-                                + "FROM country ORDER BY country.population DESC";
+                        "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
+                                + "FROM country LEFT JOIN city ON country.Capital = city.ID ORDER BY country.population DESC";
 
                 // Execute SQL statement
                 ResultSet rset = stmt.executeQuery(strSelect);
@@ -113,7 +123,7 @@ public class App
                     c.setContinent(rset.getString("country.continent"));
                     c.setRegion(rset.getString("country.region"));
                     c.setPopulation(rset.getInt("country.population"));
-                    c.setCapital(rset.getString("country.capital"));
+                    c.setCapital(rset.getString("city.Name"));
                     countries.add(c);
                 }
                 return countries;
@@ -142,6 +152,44 @@ public class App
         // Print countries
         for (Country c : countries){
             System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
+        }
+    }
+
+    /**
+     * prints all countries contained in the ArrayList where the continent is equal to the one provided
+     *
+     * @param countries Ann ArrayList of countries
+     */
+    public void printCountriesContinent(ArrayList<Country> countries, String continent){
+
+        // Print headers
+        System.out.println("All the countries in " + continent + " from largest population to smallest. \r\n");
+        System.out.printf("%-3s %-46s %-15s %-29s %-15s %-9s%n", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital");
+        System.out.println("-----|----------------------------------------------|---------------|------------------------------|---------------|--------");
+        // Print countries
+        for (Country c : countries){
+            if(c.getContinent().equals(continent)) {
+                System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
+            }
+        }
+    }
+
+    /**
+     * prints all countries contained in the ArrayList where the Region is equal to the one provided
+     *
+     * @param countries Ann ArrayList of countries
+     */
+    public void printCountriesRegion(ArrayList<Country> countries, String region){
+
+        // Print headers
+        System.out.println("All the countries in " + region + " from largest population to smallest. \r\n");
+        System.out.printf("%-3s %-46s %-15s %-29s %-15s %-9s%n", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital");
+        System.out.println("-----|----------------------------------------------|---------------|------------------------------|---------------|--------");
+        // Print countries
+        for (Country c : countries){
+            if(c.getRegion().equals(region)) {
+                System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
+            }
         }
     }
 }
