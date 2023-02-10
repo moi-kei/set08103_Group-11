@@ -14,15 +14,15 @@ public class App
         // Connect to database
         a.connect();
 
-        //create ArrayList containing all countries
+        // Create ArrayList containing all countries
         ArrayList<Country> countries = a.getAllCountries();
         // Print all countries in the world db
         a.printAllCountries(countries);
         System.out.println("\r\n \r\n");
-        //print all countries in a continent (Europe can be changed to whichever continent)
+        // Print all countries in a continent (Europe can be changed to whichever continent)
         a.printCountriesContinent(countries, "Europe");
         System.out.println("\r\n \r\n");
-        //print all countries in a continent (SA can be changed to whichever continent)
+        // Print all countries in a continent (SA can be changed to whichever continent)
         a.printCountriesRegion(countries, "South America");
         System.out.println("\r\n \r\n");
 
@@ -139,7 +139,7 @@ public class App
     }
 
     /**
-     * prints all countries contained in the ArrayList that is supplied to it
+     * Prints all countries contained in the ArrayList that is supplied to it
      *
      * @param countries Ann ArrayList of countries
      */
@@ -156,7 +156,7 @@ public class App
     }
 
     /**
-     * prints all countries contained in the ArrayList where the continent is equal to the one provided
+     * Prints all countries contained in the ArrayList where the continent is equal to the one provided
      *
      * @param countries Ann ArrayList of countries
      */
@@ -175,7 +175,7 @@ public class App
     }
 
     /**
-     * prints all countries contained in the ArrayList where the Region is equal to the one provided
+     * Prints all countries contained in the ArrayList where the Region is equal to the one provided
      *
      * @param countries Ann ArrayList of countries
      */
