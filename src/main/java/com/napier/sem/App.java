@@ -5,6 +5,13 @@ import java.util.ArrayList;
 
 public class App
 {
+    /**
+     * Main function generates reports in docker outlined in the specification
+     * currently:
+     * -generates a list of all countries in the world in order of population
+     * -generates a list of all countries in a continent in order of population
+     * -generates a list of all countries in a region in order of population
+     */
     private Connection con = null;
     public static void main(String[] args)
     {
@@ -141,7 +148,7 @@ public class App
     /**
      * Prints all countries contained in the ArrayList that is supplied to it
      *
-     * @param countries Ann ArrayList of countries
+     * @param countries An ArrayList of countries
      */
     public void printAllCountries(ArrayList<Country> countries){
 
@@ -158,7 +165,8 @@ public class App
     /**
      * Prints all countries contained in the ArrayList where the continent is equal to the one provided
      *
-     * @param countries Ann ArrayList of countries
+     * @param countries An ArrayList of countries
+     * @param continent A string of the continent to get countries from
      */
     public void printCountriesContinent(ArrayList<Country> countries, String continent){
 
@@ -177,7 +185,8 @@ public class App
     /**
      * Prints all countries contained in the ArrayList where the Region is equal to the one provided
      *
-     * @param countries Ann ArrayList of countries
+     * @param countries An ArrayList of countries
+     * @param region A string of the region to get countries from
      */
     public void printCountriesRegion(ArrayList<Country> countries, String region){
 
