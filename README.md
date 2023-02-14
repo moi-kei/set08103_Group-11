@@ -4,7 +4,7 @@
 
 [![Releases](https://img.shields.io/github/release/moi-kei/set08103_Group-11/all.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/releases)
 
-![workflow (feature)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=feature)
+Feature ![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=feature)
 
 **SOFTWARE ENGINEERING METHODS GROUP PROJECT**
 ------------------------------------------------------------------------------------------------
