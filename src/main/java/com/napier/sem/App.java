@@ -14,6 +14,7 @@ public class App
         // Connect to database
         a.connect();
 
+
         //create ArrayList containing all countries
         ArrayList<Country> countries = a.getAllCountries();
         // Print all countries in the world db
