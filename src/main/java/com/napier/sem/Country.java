@@ -2,6 +2,8 @@ package com.napier.sem;
 
 /**
  * Class representing a Country
+ *
+ * @Authors:  Michael Mackenzie, Nweke Success
  */
 public class Country
 {
@@ -50,6 +52,8 @@ public class Country
 
     /**
      * Sets code property
+     *
+     * @param code the countries code
      */
     public void setCode(String code) {
         this.code = code;
@@ -64,6 +68,8 @@ public class Country
 
     /**
      * Sets Name Property
+     *
+     * @param name the name ofd the country
      */
     public void setName(String name) {
         this.name = name;
@@ -78,6 +84,8 @@ public class Country
 
     /**
      * Sets continent property
+     *
+     * @param continent the continent the country is on
      */
     public void setContinent(String continent) {
         this.continent = continent;
@@ -92,6 +100,8 @@ public class Country
 
     /**
      * Sets region property
+     *
+     * @param region the region the country is in
      */
     public void setRegion(String region) {
         this.region = region;
@@ -106,6 +116,8 @@ public class Country
 
     /**
      * Sets population property
+     *
+     * @param population the population of the country
      */
     public void setPopulation(int population) {
         this.population = population;
@@ -120,6 +132,8 @@ public class Country
 
     /**
      * Sets capital property
+     *
+     * @param capital the capital city of the country
      */
     public void setCapital(String capital) {
         this.capital = capital;
