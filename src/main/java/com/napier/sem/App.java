@@ -100,6 +100,14 @@ public class App
         CityReport.printCities(citiesRegion);
         System.out.println("\r\n \r\n");
 
+        //Report 9
+        //create ArrayList of all cities in a continent
+        String country = "United Kingdom";  //<-change to desired continent
+        ArrayList<City> citiesCountry = CityReport.getAllCitiesCountry(con, country);
+        //print all cities in the world db in order of population
+        System.out.println("All the cities in " + country + " from largest population to smallest. \r\n");
+        CityReport.printCities(citiesCountry);
+        System.out.println("\r\n \r\n");
 
         // Disconnect from database
         a.disconnect();
