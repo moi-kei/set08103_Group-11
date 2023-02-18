@@ -1,6 +1,7 @@
 package com.napier.sem;
 
-import com.napier.sem.reports.CountryReport;
+import com.napier.sem.businessObjects.*;
+import com.napier.sem.reports.*;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -26,6 +27,8 @@ public class App
         a.connect();
 
 
+        //Country reports
+
         //create ArrayList containing all countries
         ArrayList<Country> countries = CountryReport.getAllCountries(con);
         // Print all countries in the world db
@@ -45,6 +48,15 @@ public class App
         System.out.println("\r\n \r\n");
         //print  the "n" highest population countries in a Region
         CountryReport.printCountriesRegion(countries, "Eastern Asia", 5);
+        System.out.println("\r\n \r\n");
+
+
+        //City reports
+
+        //create ArrayList of all cities
+        ArrayList<City> cities = CityReport.getAllCities(con);
+        //print all cities in the world db in order of population
+        CityReport.printAllCities(cities);
         System.out.println("\r\n \r\n");
 
         // Disconnect from database
