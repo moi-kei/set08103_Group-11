@@ -1,6 +1,6 @@
 package com.napier.sem.reports;
 
-import com.napier.sem.Country;
+import com.napier.sem.businessObjects.Country;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
