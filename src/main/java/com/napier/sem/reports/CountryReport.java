@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class CountryReport {
     private static final String header1 = String.format("%-3s %-46s %-15s %-29s %-15s %-9s%n", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital");
-    private static final String header2 = "-----|----------------------------------------------|---------------|------------------------------|---------------|--------";
+    private static final String header2 = String.format("%-4s %-46s %-15s %-30s %-15s %-9s%n", " ", "|", "|", "|", "|", "|");
 
     /**
      * Creates and executes a sql query that gets all countries in order of population
@@ -74,7 +74,7 @@ public class CountryReport {
             // Print headers
             System.out.println("All the countries in the world from largest population to smallest. \r\n");
             System.out.printf(header1);
-            System.out.println(header2);
+            System.out.printf(header2);
             // Print countries
             for (Country c : countries) {
                 System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
@@ -97,7 +97,7 @@ public class CountryReport {
         try {
             System.out.println("The top " + limit + " the countries in the world from largest population to smallest. \r\n");
             System.out.printf(header1);
-            System.out.println(header2);
+            System.out.printf(header2);
             // Print countries
             for (int i = 0; i < limit; i++) {
                 System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", countries.get(i).getCode(), "| " + countries.get(i).getName(), "| " + countries.get(i).getContinent(), "| " + countries.get(i).getRegion(), "| " + countries.get(i).getPopulation(), "| " + countries.get(i).getCapital());
@@ -120,7 +120,7 @@ public class CountryReport {
             // Print headers
             System.out.println("All the countries in " + continent + " from largest population to smallest. \r\n");
             System.out.printf(header1);
-            System.out.println(header2);
+            System.out.printf(header2);
             // Print countries
             for (Country c : countries) {
                 //if continent matches the provided continent print the country
@@ -147,7 +147,7 @@ public class CountryReport {
             // Print headers
             System.out.println("The top " + limit + " the countries in " + continent + " from largest population to smallest. \r\n");
             System.out.printf(header1);
-            System.out.println(header2);
+            System.out.printf(header2);
 
             int count = 0;
             // Print countries
@@ -180,7 +180,7 @@ public class CountryReport {
             // Print headers
             System.out.println("All the countries in " + region + " from largest population to smallest. \r\n");
             System.out.printf(header1);
-            System.out.println(header2);
+            System.out.printf(header2);
             // Print countries
             for (Country c : countries) {
                 //if Region matches the provided Region print the country
@@ -207,7 +207,7 @@ public class CountryReport {
             // Print headers
             System.out.println("The top " + limit + " the countries in " + region + " from largest population to smallest. \r\n");
             System.out.printf(header1);
-            System.out.println(header2);
+            System.out.printf(header2);
             // Print countries
             int count = 0;
             for (Country c : countries) {
