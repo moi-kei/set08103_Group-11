@@ -26,6 +26,15 @@ public class App
         //print all countries in a continent (SA can be changed to whichever continent)
         a.printCountriesRegion(countries, "South America");
         System.out.println("\r\n \r\n");
+        //print  the "n" highest population countries in the world
+        a.printAllCountries(countries,5);
+        System.out.println("\r\n \r\n");
+        //print  the "n" highest population countries in a continent
+        a.printCountriesContinent(countries, "Africa", 5);
+        System.out.println("\r\n \r\n");
+        //print  the "n" highest population countries in a Region
+        a.printCountriesRegion(countries, "Eastern Asia", 5);
+        System.out.println("\r\n \r\n");
 
         // Disconnect from database
         a.disconnect();
@@ -142,7 +151,7 @@ public class App
     /**
      * prints all countries contained in the ArrayList that is supplied to it
      *
-     * @param countries Ann ArrayList of countries
+     * @param countries An ArrayList of countries
      */
     public void printAllCountries(ArrayList<Country> countries){
 
@@ -157,9 +166,28 @@ public class App
     }
 
     /**
+     * prints all countries contained in the ArrayList that is supplied to it
+     *
+     * @param countries An ArrayList of countries
+     * @param limit the limit of the number of counties you want listed
+     */
+    public void printAllCountries(ArrayList<Country> countries, int limit){
+
+        // Print headers
+        System.out.println("The top " + limit + " countries in the world from largest population to smallest. \r\n");
+        System.out.printf("%-3s %-46s %-15s %-29s %-15s %-9s%n", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital");
+        System.out.println("-----|----------------------------------------------|---------------|------------------------------|---------------|--------");
+        // Print countries
+        for (int i = 0; i < limit; i++){
+            System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", countries.get(i).getCode(), "| " + countries.get(i).getName(), "| " + countries.get(i).getContinent(), "| " + countries.get(i).getRegion(), "| " + countries.get(i).getPopulation(), "| " + countries.get(i).getCapital());
+        }
+    }
+
+    /**
      * prints all countries contained in the ArrayList where the continent is equal to the one provided
      *
-     * @param countries Ann ArrayList of countries
+     * @param countries An ArrayList of countries
+     * @param continent A string of the continent to get countries from
      */
     public void printCountriesContinent(ArrayList<Country> countries, String continent){
 
@@ -176,9 +204,36 @@ public class App
     }
 
     /**
+     * prints all countries contained in the ArrayList where the continent is equal to the one provided
+     *
+     * @param countries An ArrayList of countries
+     * @param continent A string of the continent to get countries from
+     * @param limit the limit of the number of counties you want listed
+     */
+    public void printCountriesContinent(ArrayList<Country> countries, String continent, int limit){
+
+        // Print headers
+        System.out.println("The top " + limit + " countries in " + continent + " from largest population to smallest. \r\n");
+        System.out.printf("%-3s %-46s %-15s %-29s %-15s %-9s%n", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital");
+        System.out.println("-----|----------------------------------------------|---------------|------------------------------|---------------|--------");
+        // Print countries
+        int count = 0;
+        for (Country c : countries){
+            if(c.getContinent().equals(continent)) {
+                System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
+                count++;
+                if(count == limit){
+                    break;
+                }
+            }
+        }
+    }
+
+    /**
      * prints all countries contained in the ArrayList where the Region is equal to the one provided
      *
-     * @param countries Ann ArrayList of countries
+     * @param countries An ArrayList of countries
+     * @param region A string of the region to get countries from
      */
     public void printCountriesRegion(ArrayList<Country> countries, String region){
 
@@ -190,6 +245,32 @@ public class App
         for (Country c : countries){
             if(c.getRegion().equals(region)) {
                 System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
+            }
+        }
+    }
+
+    /**
+     * prints all countries contained in the ArrayList where the Region is equal to the one provided
+     *
+     * @param countries An ArrayList of countries
+     * @param region A string of the region to get countries from
+     * @param limit the limit of the number of counties you want listed
+     */
+    public void printCountriesRegion(ArrayList<Country> countries, String region, int limit){
+
+        // Print headers
+        System.out.println("All the countries in " + region + " from largest population to smallest. \r\n");
+        System.out.printf("%-3s %-46s %-15s %-29s %-15s %-9s%n", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital");
+        System.out.println("-----|----------------------------------------------|---------------|------------------------------|---------------|--------");
+        // Print countries
+        int count = 0;
+        for (Country c : countries){
+            if(c.getRegion().equals(region)) {
+                System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
+                count++;
+                if(count == limit){
+                    break;
+                }
             }
         }
     }
