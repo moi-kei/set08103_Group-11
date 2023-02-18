@@ -34,20 +34,32 @@ public class App
         // Print all countries in the world db
         CountryReport.printAllCountries(countries);
         System.out.println("\r\n \r\n");
+
         //print all countries in a continent (Europe can be changed to whichever continent)
-        CountryReport.printCountriesContinent(countries, "Europe");
+        String continent = "Europe"; //<-change to desired continent
+        CountryReport.printCountriesContinent(countries, continent);
         System.out.println("\r\n \r\n");
-        //print all countries in a continent (SA can be changed to whichever continent)
-        CountryReport.printCountriesRegion(countries, "South America");
+
+        //print all countries in a region (SA can be changed to whichever continent)
+        String region = "South America"; //<-change to desired region
+        CountryReport.printCountriesRegion(countries, region);
         System.out.println("\r\n \r\n");
+
         //print  the "n" highest population countries in the world
-        CountryReport.printAllCountries(countries,5);
+        int limit = 5; //<-change to desired number of outputs
+        CountryReport.printAllCountries(countries, limit);
         System.out.println("\r\n \r\n");
+
         //print  the "n" highest population countries in a continent
-        CountryReport.printCountriesContinent(countries, "Africa", 5);
+        limit = 7; //<-change to desired number of outputs
+        continent = "Africa"; //<-change to desired continent
+        CountryReport.printCountriesContinent(countries, continent, limit);
         System.out.println("\r\n \r\n");
+
         //print  the "n" highest population countries in a Region
-        CountryReport.printCountriesRegion(countries, "Eastern Asia", 5);
+        limit = 5; //<-change to desired number of outputs
+        region = "Eastern Asia"; //<-change to desired continent
+        CountryReport.printCountriesRegion(countries, region, limit);
         System.out.println("\r\n \r\n");
 
 
@@ -56,11 +68,15 @@ public class App
         //create ArrayList of all cities
         ArrayList<City> cities = CityReport.getAllCities(con);
         //print all cities in the world db in order of population
+        System.out.println("All the cities in the world from largest population to smallest. \r\n");
         CityReport.printCities(cities);
         System.out.println("\r\n \r\n");
+
         //create ArrayList of all cities in a continent
-        ArrayList<City> citiesContinent = CityReport.getAllCitiesContinent(con, "Oceania");
+        continent = "Oceania";  //<-change to desired continent
+        ArrayList<City> citiesContinent = CityReport.getAllCitiesContinent(con, continent);
         //print all cities in the world db in order of population
+        System.out.println("All the cities in " + continent + " from largest population to smallest. \r\n");
         CityReport.printCities(citiesContinent);
         System.out.println("\r\n \r\n");
 
