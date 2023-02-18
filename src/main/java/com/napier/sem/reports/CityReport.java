@@ -128,7 +128,7 @@ public class CityReport {
         try {
             // Print headers
             System.out.printf("%-36s %-46s %-22s %-11s%n", "Name", "| Country ", "| District ", "| Population ");
-            System.out.println("-------------------------------------|----------------------------------------------|----------------------|-----------");
+            System.out.printf("%-36s %-46s %-22s %-11s%n", " ", "|", "|" , "|");
 
             // Print countries
             for (City c : cities) {
