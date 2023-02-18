@@ -15,26 +15,86 @@ import java.util.ArrayList;
 public class CityReport {
 
     /**
-     * Creates and executes a sql query that gets all cities in order of population
-     * constructs a city, assigns variables based on sql entry
-     * then adds the city to an Arraylist which is returned
+     * builds SQL query to get city details passed to it
+     * passes the query to the executeCityQuery function to execute
+     * then returns the list of cities that it created
      *
      * @return all cities in the world db in order of population from largest to smallest
+     * @param con the connection to the database
      */
-    public static ArrayList<City> getAllCities(Connection con)
+    public static ArrayList<City> getAllCities(Connection con){
+
+        try
+        {
+            {
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                //construct SQL query
+                String strSelect =
+                        "SELECT city.Name, country.Name, city.District, city. population "
+                                + "FROM city LEFT JOIN country ON city.CountryCode = country.Code ORDER BY city.population DESC";
+                //get ResultSet
+                ResultSet rset = stmt.executeQuery(strSelect);
+                //pass to buildCityList to construct ArrayList of cities
+                return buildCityList(rset);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
+
+    /**
+     * builds SQL query using the continent string passed to it
+     * passes the query to the executeCityQuery function to execute
+     * then returns the list of cities that it created
+     *
+     * @return all cities in the world db in order of population from largest to smallest
+     * @param con the connection to the database
+     * @param continent the continent the listed cities will be from
+     */
+    public static ArrayList<City> getAllCitiesContinent(Connection con, String continent)
     {
         try
         {
             {
                 // Create an SQL statement
                 Statement stmt = con.createStatement();
-                // Create string for SQL statement
+                //construct SQL query
                 String strSelect =
-                        "SELECT city.Name, country.Name, city.District, city. population "
-                                + "FROM city LEFT JOIN country ON city.CountryCode = country.Code ORDER BY city.population DESC";
-
-                // Execute SQL statement
+                        "SELECT city.Name, country.Name, city.District, city.population "
+                                + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                                + "WHERE country.Continent LIKE '" + continent + "' ORDER BY city.population DESC";
+                //get ResultSet
                 ResultSet rset = stmt.executeQuery(strSelect);
+                //pass to buildCityList to construct ArrayList of cities
+                return buildCityList(rset);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
+
+    /**
+     * executes a sql query that lists cities in order of population
+     * constructs a city, assigns variables based on sql entry
+     * then adds the city to an Arraylist which is returned
+     *
+     * @return all cities in the world db in order of population from largest to smallest
+     * @param rset ResultSet returned from the SQL query
+     */
+    public static ArrayList<City> buildCityList(ResultSet rset)
+    {
+        try
+        {
+            {
                 // Create arrayList for countries
                 ArrayList<City> cities = new ArrayList<>();
                 // Create new country and assign variables
@@ -48,7 +108,6 @@ public class CityReport {
                     cities.add(c);
                 }
                 return cities;
-
             }
         }
         catch (Exception e)
@@ -64,7 +123,7 @@ public class CityReport {
      *
      * @param cities An ArrayList of cities
      */
-    public static void printAllCities(ArrayList<City> cities){
+    public static void printCities(ArrayList<City> cities){
 
         try {
             // Print headers

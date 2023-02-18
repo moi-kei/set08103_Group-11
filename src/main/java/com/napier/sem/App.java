@@ -56,7 +56,12 @@ public class App
         //create ArrayList of all cities
         ArrayList<City> cities = CityReport.getAllCities(con);
         //print all cities in the world db in order of population
-        CityReport.printAllCities(cities);
+        CityReport.printCities(cities);
+        System.out.println("\r\n \r\n");
+        //create ArrayList of all cities in a continent
+        ArrayList<City> citiesContinent = CityReport.getAllCitiesContinent(con, "Oceania");
+        //print all cities in the world db in order of population
+        CityReport.printCities(citiesContinent);
         System.out.println("\r\n \r\n");
 
         // Disconnect from database
