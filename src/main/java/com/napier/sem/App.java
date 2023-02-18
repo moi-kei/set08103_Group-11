@@ -28,7 +28,7 @@ public class App
 
 
         //Country reports
-         
+
         //create ArrayList containing all countries
         ArrayList<Country> countries = CountryReport.getAllCountries(con);
         // Print all countries in the world db
