@@ -153,6 +153,41 @@ public class CityReport {
     }
 
     /**
+     * builds SQL query using the region string passed to it
+     * passes the query to the executeCityQuery function to execute
+     * then returns the list of cities that it created
+     *
+     * @return all cities in the supplied district from the world db in order of population from largest to smallest
+     * @param con the connection to the database
+     * @param district the country the listed cities will be from
+     */
+    public static ArrayList<City> getAllCitiesDistrict(Connection con, String district)
+    {
+        try
+        {
+            {
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                //construct SQL query
+                String strSelect =
+                        "SELECT city.Name, country.Name, city.District, city.population "
+                                + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                                + "WHERE city.District LIKE '" + district + "' ORDER BY city.population DESC";
+                //get ResultSet
+                ResultSet rset = stmt.executeQuery(strSelect);
+                //pass to buildCityList to construct ArrayList of cities and return it
+                return buildCityList(rset);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
+
+    /**
      * executes a sql query that lists cities in order of population
      * constructs a city, assigns variables based on sql entry
      * then adds the city to an Arraylist which is returned

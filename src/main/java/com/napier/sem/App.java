@@ -75,7 +75,7 @@ public class App
         //City reports
 
         //Report 7
-        //create ArrayList of all cities
+        //create ArrayList of all cities in the world
         ArrayList<City> cities = CityReport.getAllCities(con);
         //print all cities in the world db in order of population
         System.out.println("All the cities in the world from largest population to smallest. \r\n");
@@ -92,7 +92,7 @@ public class App
         System.out.println("\r\n \r\n");
 
         //Report 9
-        //create ArrayList of all cities in a continent
+        //create ArrayList of all cities in a region
         region = "Southern Europe";  //<-change to desired continent
         ArrayList<City> citiesRegion = CityReport.getAllCitiesRegion(con, region);
         //print all cities in the world db in order of population
@@ -101,12 +101,21 @@ public class App
         System.out.println("\r\n \r\n");
 
         //Report 9
-        //create ArrayList of all cities in a continent
+        //create ArrayList of all cities in a country
         String country = "United Kingdom";  //<-change to desired continent
         ArrayList<City> citiesCountry = CityReport.getAllCitiesCountry(con, country);
         //print all cities in the world db in order of population
         System.out.println("All the cities in " + country + " from largest population to smallest. \r\n");
         CityReport.printCities(citiesCountry);
+        System.out.println("\r\n \r\n");
+
+        //Report 10
+        //create ArrayList of all cities in a district
+        String district = "Scotland";  //<-change to desired continent
+        ArrayList<City> citiesDistrict = CityReport.getAllCitiesDistrict(con, district);
+        //print all cities in the world db in order of population
+        System.out.println("All the cities in " + district + " from largest population to smallest. \r\n");
+        CityReport.printCities(citiesDistrict);
         System.out.println("\r\n \r\n");
 
         // Disconnect from database
