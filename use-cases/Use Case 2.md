@@ -1,4 +1,4 @@
-**USE CASE: 1 Produce a report on all the cities based on population**
+**USE CASE: 2 Produce a report on all the cities based on population**
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
 **CHARACTERISTIC INFORMATION**
@@ -10,7 +10,7 @@ As a PI Advisor I want to produce a report on all the cities so that I can devel
 
 **Scope**
 
-Company.
+Organisation.
 
 **Level**
 
@@ -22,7 +22,7 @@ Database contains all data of the cities in the world.
 
 **Success End Condition**
 
-* All the cities in the world, continent and region organised by largest population to smallest
+* All the cities in the world, continent and region organised by largest population to smallest.
 * The top N populated cities in the world, continent and region.
 
 **Failed End Condition**
