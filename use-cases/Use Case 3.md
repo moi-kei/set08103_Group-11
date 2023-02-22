@@ -1,4 +1,4 @@
-**USE CASE: 1 Produce a report on all the capital cities based on population**
+**USE CASE: 3 Produce a report on all the capital cities based on population**
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 
 **CHARACTERISTIC INFORMATION**
@@ -10,7 +10,7 @@ As a PI Advisor I want to produce a report on all the capital cities so that I c
 
 **Scope**
 
-Company.
+Organisation.
 
 **Level**
 
@@ -22,7 +22,7 @@ Database contains all data of the capital cities in the world.
 
 **Success End Condition**
 
-* All the capital cities in the world, continent and region organised by largest population to smallest
+* All the capital cities in the world, continent and region organised by largest population to smallest.
 * The top N populated cities in the world, continent and region.
 
 **Failed End Condition**
