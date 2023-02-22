@@ -6,7 +6,7 @@
 
 **Goal in Context**
 
-As a PI Advisor I want to produce a report on the population of people so that I can develop a better understanding of people who are living and not living in cities.
+As a PI Advisor I want to produce a report on the population of people who are living and not living in cities so that I can develop a better understanding of peoples population distribution.
 
 **Scope**
 
