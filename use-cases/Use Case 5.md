@@ -18,7 +18,7 @@ Primary task.
 
 **Preconditions**
 
-Database contains all data of the capital cities in the world.
+Database contains all population data in the world.
 
 **Success End Condition**
 
