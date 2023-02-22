@@ -10,7 +10,7 @@ As a PI Advisor I want to produce a report on all the countries so that I can de
 
 **Scope**
 
-Company.
+Organisation.
 
 **Level**
 
@@ -22,8 +22,8 @@ Database contains all data of the countries in the world.
 
 **Success End Condition**
 
-* All the countries in the world, continent and region organised by largest population to smallest
-* The top N populated countries in the world, continent and region
+* All the countries in the world, continent and region organised by largest population to smallest.
+* The top N populated countries in the world, continent and region.
 
 **Failed End Condition**
 
