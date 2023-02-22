@@ -6,7 +6,7 @@
 
 **Goal in Context**
 
-As a PI Advisor I want to produce a report on all the countries so that I can develop a better understanding of population distribution
+As a PI Advisor I want to produce a report on all the countries so that I can develop a better understanding of population distribution.
 
 **Scope**
 
