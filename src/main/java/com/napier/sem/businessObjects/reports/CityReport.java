@@ -1,4 +1,4 @@
-package com.napier.sem.reports;
+package com.napier.sem.businessObjects.reports;
 
 import com.napier.sem.businessObjects.City;
 
