@@ -8,9 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Class acting as a container for static function related to creating city reports
- *
- * @Authors: Michael Mackenzie, Nweke Success
+ * Class acting as a container for static function related to creating city reports*
+ * {@code @Authors:} Michael Mackenzie, Nweke Success
  */
 public class CityReport {
 

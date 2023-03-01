@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 /**
  * Class acting as a container for static function related to creating country reports
- *
- * @Authors: Michael Mackenzie, Nweke Success
+ * /TODO: rewrite class to use separate lists and queries to increase efficiency
+ * {@code @Authors:} Michael Mackenzie, Nweke Success
  */
 public class CountryReport {
     private static final String header1 = String.format("%-3s %-46s %-15s %-29s %-15s %-9s%n", "Code", "| Name", "| Continent", "| Region", " | Population", " | Capital");

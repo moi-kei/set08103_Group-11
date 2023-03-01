@@ -2,8 +2,8 @@ package com.napier.sem.businessObjects;
 
 /**
  * Class representing a City
- *
- * @Authors:  Michael Mackenzie, Nweke Success
+
+ * {@code @Authors:}  Michael Mackenzie, Nweke Success
  */
 public class City {
 
