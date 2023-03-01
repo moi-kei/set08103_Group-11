@@ -1,4 +1,4 @@
-package com.napier.sem.reports;
+package com.napier.sem.businessObjects.reports;
 
 import com.napier.sem.businessObjects.City;
 
@@ -8,9 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Class acting as a container for static function related to creating city reports
- *
- * @Authors: Michael Mackenzie, Nweke Success
+ * Class acting as a container for static function related to creating city reports*
+ * {@code @Authors:} Michael Mackenzie, Nweke Success
  */
 public class CityReport {
 

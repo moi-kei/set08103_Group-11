@@ -1,7 +1,7 @@
 package com.napier.sem;
 
 import com.napier.sem.businessObjects.*;
-import com.napier.sem.reports.*;
+import com.napier.sem.businessObjects.reports.*;
 import java.sql.*;
 import java.util.ArrayList;
 
