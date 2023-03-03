@@ -12,7 +12,6 @@ Feature ![Github Workflow Status (branch)](https://img.shields.io/github/actions
 **Group members**
 - Michael Mackenzie
 - Nweke Success
-- Cameron Campbell
 
 **Specification**
 
