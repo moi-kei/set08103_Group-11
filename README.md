@@ -2,7 +2,7 @@
 
 [![LICENSE](https://img.shields.io/github/license/moi-kei/set08103_Group-11.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/blob/master/LICENSE)
 
-Mater Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=master)
+Master Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=master)
 
 Develop Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=develop)
 
