@@ -2,9 +2,14 @@
 
 [![LICENSE](https://img.shields.io/github/license/moi-kei/set08103_Group-11.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/blob/master/LICENSE)
 
+Main Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=main)
+
+Develop Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=develop)
+
+Feature Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=feature)
+
 [![Releases](https://img.shields.io/github/release/moi-kei/set08103_Group-11/all.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/releases)
 
-Feature ![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=feature)
 
 **SOFTWARE ENGINEERING METHODS GROUP PROJECT**
 ------------------------------------------------------------------------------------------------
@@ -12,7 +17,6 @@ Feature ![Github Workflow Status (branch)](https://img.shields.io/github/actions
 **Group members**
 - Michael Mackenzie
 - Nweke Success
-- Cameron Campbell
 
 **Specification**
 
