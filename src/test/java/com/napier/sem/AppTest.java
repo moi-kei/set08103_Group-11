@@ -1,4 +1,4 @@
-import com.napier.sem.App;
+package com.napier.sem;
 import com.napier.sem.businessObjects.City;
 import com.napier.sem.businessObjects.Country;
 import com.napier.sem.businessObjects.reports.CityReport;
@@ -7,9 +7,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class MyTest {
+class AppTest {
     static App app;
 
     /**
@@ -59,6 +57,7 @@ class MyTest {
     {
         ArrayList<Country> countries = new ArrayList<>();
         Country c = new Country();
+        c.setName("Scotland");
         c.setCapital("Edinburgh");
         c.setCode("1");
         c.setContinent("Europe");
@@ -111,6 +110,7 @@ class MyTest {
         c.setName("Edinburgh");
         c.setDistrict("Scotland");
         c.setPopulation(27);
+        cities.add(c);
         CityReport.printCities(cities);
     }
 }
