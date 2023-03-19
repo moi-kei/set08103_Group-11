@@ -229,6 +229,11 @@ public class CityReport {
      */
     public static void printCities(ArrayList<City> cities){
 
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         try {
             // Print headers
             System.out.printf("%-36s %-46s %-22s %-11s%n", "Name", "| Country ", "| District ", "| Population ");

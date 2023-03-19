@@ -137,19 +137,4 @@ public class Country
     public void setCapital(String capital) {
         this.capital = capital;
     }
-
-    /**
-     * ToString Method for Country Class
-     */
-    @Override
-    public String toString() {
-        return "Country{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", continent='" + continent + '\'' +
-                ", region='" + region + '\'' +
-                ", population=" + population +
-                ", capital='" + capital + '\'' +
-                '}';
-    }
 }

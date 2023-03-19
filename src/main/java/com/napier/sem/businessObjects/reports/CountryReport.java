@@ -70,6 +70,11 @@ public class CountryReport {
      */
     public static void printAllCountries(ArrayList<Country> countries){
 
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         try {
             // Print headers
             System.out.println("All the countries in the world from largest population to smallest. \r\n");
@@ -93,6 +98,11 @@ public class CountryReport {
      */
     public static void printAllCountries(ArrayList<Country> countries, int limit){
 
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         // Print headers
         try {
             System.out.println("The top " + limit + " the countries in the world from largest population to smallest. \r\n");
@@ -116,6 +126,11 @@ public class CountryReport {
      */
     public static void printCountriesContinent(ArrayList<Country> countries, String continent){
 
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         try {
             // Print headers
             System.out.println("All the countries in " + continent + " from largest population to smallest. \r\n");
@@ -143,6 +158,11 @@ public class CountryReport {
      */
     public static void printCountriesContinent(ArrayList<Country> countries, String continent, int limit){
 
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         try {
             // Print headers
             System.out.println("The top " + limit + " the countries in " + continent + " from largest population to smallest. \r\n");
@@ -176,6 +196,11 @@ public class CountryReport {
      */
     public static void printCountriesRegion(ArrayList<Country> countries, String region){
 
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         try {
             // Print headers
             System.out.println("All the countries in " + region + " from largest population to smallest. \r\n");
@@ -203,6 +228,11 @@ public class CountryReport {
      */
     public static void printCountriesRegion(ArrayList<Country> countries, String region, int limit){
 
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
         try {
             // Print headers
             System.out.println("The top " + limit + " the countries in " + region + " from largest population to smallest. \r\n");
