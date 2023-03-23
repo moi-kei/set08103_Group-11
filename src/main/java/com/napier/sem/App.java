@@ -103,7 +103,7 @@ public class App
         CityReport.printCities(citiesRegion);
         System.out.println("\r\n \r\n");
 
-        //Report 9
+        //Report 10
         //create ArrayList of all cities in a country
         String country = "United Kingdom";  //<-change to desired continent
         ArrayList<City> citiesCountry = CityReport.getAllCitiesCountry(con, country);
@@ -112,7 +112,7 @@ public class App
         CityReport.printCities(citiesCountry);
         System.out.println("\r\n \r\n");
 
-        //Report 10
+        //Report 11
         //create ArrayList of all cities in a district
         String district = "Scotland";  //<-change to desired continent
         ArrayList<City> citiesDistrict = CityReport.getAllCitiesDistrict(con, district);
