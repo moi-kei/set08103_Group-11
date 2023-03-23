@@ -1,7 +1,6 @@
 package com.napier.sem.businessObjects.reports;
 
 import com.napier.sem.businessObjects.Country;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 
 /**
  * Class acting as a container for static function related to creating country reports
- * /TODO: rewrite class to use separate lists and queries to increase efficiency
  * {@code @Authors:} Michael Mackenzie, Nweke Success
  */
 public class CountryReport {
@@ -37,22 +35,178 @@ public class CountryReport {
 
                 // Execute SQL statement
                 ResultSet rset = stmt.executeQuery(strSelect);
-                // Create arrayList for countries
-                ArrayList<Country> countries = new ArrayList<>();
-                // Create new country and assign variables
-                while (rset.next())
-                {
-                    Country c = new Country();
-                    c.setCode(rset.getString("country.code"));
-                    c.setName(rset.getString("country.name"));
-                    c.setContinent(rset.getString("country.continent"));
-                    c.setRegion(rset.getString("country.region"));
-                    c.setPopulation(rset.getInt("country.population"));
-                    c.setCapital(rset.getString("city.Name"));
-                    countries.add(c);
-                }
-                return countries;
 
+                return buildCountryList(rset);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+
+    /**
+     * prints all countries contained in the ArrayList that is supplied to it
+     *
+     * @param con The connection to the database
+     * @param limit the limit of the number of counties you want listed
+     */
+    public static ArrayList<Country> getAllCountriesLimit(Connection con, int limit)
+    {
+        try
+        {
+            {
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                // Create string for SQL statement
+                String strSelect =
+                        "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
+                                + "FROM country LEFT JOIN city ON country.Capital = city.ID ORDER BY country.population DESC LIMIT " + limit ;
+
+                // Execute SQL statement
+                ResultSet rset = stmt.executeQuery(strSelect);
+
+                return buildCountryList(rset);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+
+    /**
+     * builds SQL query using the continent string passed to it
+     * returns the list of cities that it created
+     *
+     * @return all countries in the supplied continent from the world db in order of population from largest to smallest
+     * @param con the connection to the database
+     * @param continent the continent the listed countries will be from
+     */
+    public static ArrayList<Country> getAllCountriesContinent(Connection con, String continent)
+    {
+        try
+        {
+            {
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                //construct SQL query
+                String strSelect =
+                        "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
+                            + "FROM country LEFT JOIN city ON country.Capital = city.ID "
+                                + "WHERE country.Continent LIKE '" + continent + "' ORDER BY country.population DESC";
+                //get ResultSet
+                ResultSet rset = stmt.executeQuery(strSelect);
+                //pass to buildCityList to construct ArrayList of countries and return it
+                return buildCountryList(rset);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+
+    /**
+     * builds SQL query using the continent string passed to it
+     * returns the list of cities that it created
+     *
+     * @return all countries in the supplied continent from the world db in order of population from largest to smallest
+     * @param con the connection to the database
+     * @param continent the continent the listed coountries will be from
+     * @param limit the number of entries to get from database
+     */
+    public static ArrayList<Country> getAllCountriesContinentLimit(Connection con, String continent, int limit)
+    {
+        try
+        {
+            {
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                //construct SQL query
+                String strSelect =
+                        "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
+                                + "FROM country LEFT JOIN city ON country.Capital = city.ID "
+                                + "WHERE country.Continent LIKE '" + continent + "' ORDER BY country.population DESC LIMIT " + limit;
+                //get ResultSet
+                ResultSet rset = stmt.executeQuery(strSelect);
+                //pass to buildCityList to construct ArrayList of countries and return it
+                return buildCountryList(rset);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+
+    /**
+     * builds SQL query using the region string passed to it
+     * returns the list of cities that it created
+     *
+     * @return all countries in the supplied region from the world db in order of population from largest to smallest
+     * @param con the connection to the database
+     * @param region the continent the listed countries will be from
+     */
+    public static ArrayList<Country> getAllCountriesRegion(Connection con, String region)
+    {
+        try
+        {
+            {
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                //construct SQL query
+                String strSelect =
+                        "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
+                                + "FROM country LEFT JOIN city ON country.Capital = city.ID "
+                                + "WHERE country.Continent LIKE '" + region + "' ORDER BY country.population DESC";
+                //get ResultSet
+                ResultSet rset = stmt.executeQuery(strSelect);
+                //pass to buildCityList to construct ArrayList of countries and return it
+                return buildCountryList(rset);
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+
+    /**
+     * builds SQL query using the region string passed to it
+     * returns the list of cities that it created
+     *
+     * @return all countries in the supplied region from the world db in order of population from largest to smallest
+     * @param con the connection to the database
+     * @param region the continent the listed countries will be from
+     * @param limit the number of entries to get from database
+     */
+    public static ArrayList<Country> getAllCountriesRegionLimit(Connection con, String region, int limit)
+    {
+        try
+        {
+            {
+                // Create an SQL statement
+                Statement stmt = con.createStatement();
+                //construct SQL query
+                String strSelect =
+                        "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
+                                + "FROM country LEFT JOIN city ON country.Capital = city.ID "
+                                + "WHERE country.Continent LIKE '" + region + "' ORDER BY country.population DESC LIMIT " + limit;
+                //get ResultSet
+                ResultSet rset = stmt.executeQuery(strSelect);
+                //pass to buildCityList to construct ArrayList of countries and return it
+                return buildCountryList(rset);
             }
         }
         catch (Exception e)
@@ -68,7 +222,7 @@ public class CountryReport {
      *
      * @param countries An ArrayList of countries
      */
-    public static void printAllCountries(ArrayList<Country> countries){
+    public static void printCountries(ArrayList<Country> countries){
 
         if (countries == null)
         {
@@ -77,7 +231,6 @@ public class CountryReport {
         }
         try {
             // Print headers
-            System.out.println("All the countries in the world from largest population to smallest. \r\n");
             System.out.printf(header1);
             System.out.printf(header2);
             // Print countries
@@ -91,167 +244,39 @@ public class CountryReport {
     }
 
     /**
-     * prints all countries contained in the ArrayList that is supplied to it
+     * constructs a country, assigns variables based on sql entry
+     * then adds the country to an Arraylist which is returned
      *
-     * @param countries An ArrayList of countries
-     * @param limit the limit of the number of counties you want listed
+     * @return all countries in the world db in order of population from largest to smallest
+     * @param rset ResultSet returned from the SQL query
      */
-    public static void printAllCountries(ArrayList<Country> countries, int limit){
-
-        if (countries == null)
+    public static ArrayList<Country> buildCountryList(ResultSet rset)
+    {
+        try
         {
-            System.out.println("No countries");
-            return;
-        }
-        // Print headers
-        try {
-            System.out.println("The top " + limit + " the countries in the world from largest population to smallest. \r\n");
-            System.out.printf(header1);
-            System.out.printf(header2);
-            // Print countries
-            for (int i = 0; i < limit; i++) {
-                System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", countries.get(i).getCode(), "| " + countries.get(i).getName(), "| " + countries.get(i).getContinent(), "| " + countries.get(i).getRegion(), "| " + countries.get(i).getPopulation(), "| " + countries.get(i).getCapital());
-            }
-        }
-        catch (Exception e){
-            System.out.println("Could not print any countries");
-        }
-    }
-
-    /**
-     * prints all countries contained in the ArrayList where the continent is equal to the one provided
-     *
-     * @param countries An ArrayList of countries
-     * @param continent A string of the continent to get countries from
-     */
-    public static void printCountriesContinent(ArrayList<Country> countries, String continent){
-
-        if (countries == null)
-        {
-            System.out.println("No countries");
-            return;
-        }
-        try {
-            // Print headers
-            System.out.println("All the countries in " + continent + " from largest population to smallest. \r\n");
-            System.out.printf(header1);
-            System.out.printf(header2);
-            // Print countries
-            for (Country c : countries) {
-                //if continent matches the provided continent print the country
-                if (c.getContinent().equals(continent)) {
-                    System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
+            {
+                // Create arrayList for countries
+                ArrayList<Country> countries = new ArrayList<>();
+                // Create new country and assign variables
+                while (rset.next())
+                {
+                    Country c = new Country();
+                    c.setCode(rset.getString("country.code"));
+                    c.setName(rset.getString("country.name"));
+                    c.setContinent(rset.getString("country.continent"));
+                    c.setRegion(rset.getString("country.region"));
+                    c.setPopulation(rset.getInt("country.population"));
+                    c.setCapital(rset.getString("city.Name"));
+                    countries.add(c);
                 }
+                return countries;
             }
         }
-        catch (Exception e){
-            System.out.println("Could not print any countries");
-        }
-    }
-
-    /**
-     * prints all countries contained in the ArrayList where the continent is equal to the one provided
-     *
-     * @param countries An ArrayList of countries
-     * @param continent A string of the continent to get countries from
-     * @param limit the limit of the number of counties you want listed
-     */
-    public static void printCountriesContinent(ArrayList<Country> countries, String continent, int limit){
-
-        if (countries == null)
+        catch (Exception e)
         {
-            System.out.println("No countries");
-            return;
-        }
-        try {
-            // Print headers
-            System.out.println("The top " + limit + " the countries in " + continent + " from largest population to smallest. \r\n");
-            System.out.printf(header1);
-            System.out.printf(header2);
-
-            int count = 0;
-            // Print countries
-            for (Country c : countries) {
-                //if continent matches the provided continent print the country and increment counter
-                if (c.getContinent().equals(continent)) {
-                    System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
-                    count++;
-
-                    if (count == limit) {
-                        break;
-                    }
-                }
-            }
-        }
-        catch (Exception e){
-            System.out.println("Could not print any countries");
-        }
-    }
-
-    /**
-     * prints all countries contained in the ArrayList where the Region is equal to the one provided
-     *
-     * @param countries An ArrayList of countries
-     * @param region A string of the region to get countries from
-     */
-    public static void printCountriesRegion(ArrayList<Country> countries, String region){
-
-        if (countries == null)
-        {
-            System.out.println("No countries");
-            return;
-        }
-        try {
-            // Print headers
-            System.out.println("All the countries in " + region + " from largest population to smallest. \r\n");
-            System.out.printf(header1);
-            System.out.printf(header2);
-            // Print countries
-            for (Country c : countries) {
-                //if Region matches the provided Region print the country
-                if (c.getRegion().equals(region)) {
-                    System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
-                }
-            }
-        }
-        catch (Exception e){
-            System.out.println("Could not print any countries");
-        }
-    }
-
-    /**
-     * prints all countries contained in the ArrayList where the Region is equal to the one provided
-     *
-     * @param countries An ArrayList of countries
-     * @param region A string of the region to get countries from
-     * @param limit the limit of the number of counties you want listed
-     */
-    public static void printCountriesRegion(ArrayList<Country> countries, String region, int limit){
-
-        if (countries == null)
-        {
-            System.out.println("No countries");
-            return;
-        }
-        try {
-            // Print headers
-            System.out.println("The top " + limit + " the countries in " + region + " from largest population to smallest. \r\n");
-            System.out.printf(header1);
-            System.out.printf(header2);
-            // Print countries
-            int count = 0;
-            for (Country c : countries) {
-                if (c.getRegion().equals(region)) {
-                    System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
-                    count++;
-                    if (count == limit) {
-                        break;
-                    }
-                }
-            }
-        }
-        catch (Exception e){
-            System.out.println("Could not print any countries");
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
         }
     }
 }
