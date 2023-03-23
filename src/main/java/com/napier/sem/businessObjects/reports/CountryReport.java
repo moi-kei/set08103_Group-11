@@ -167,7 +167,7 @@ public class CountryReport {
                 String strSelect =
                         "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
                                 + "FROM country LEFT JOIN city ON country.Capital = city.ID "
-                                + "WHERE country.Continent LIKE '" + region + "' ORDER BY country.population DESC";
+                                + "WHERE country.Region LIKE '" + region + "' ORDER BY country.population DESC";
                 //get ResultSet
                 ResultSet rset = stmt.executeQuery(strSelect);
                 //pass to buildCityList to construct ArrayList of countries and return it
@@ -202,7 +202,7 @@ public class CountryReport {
                 String strSelect =
                         "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
                                 + "FROM country LEFT JOIN city ON country.Capital = city.ID "
-                                + "WHERE country.Continent LIKE '" + region + "' ORDER BY country.population DESC LIMIT " + limit;
+                                + "WHERE country.Region LIKE '" + region + "' ORDER BY country.population DESC LIMIT " + limit;
                 //get ResultSet
                 ResultSet rset = stmt.executeQuery(strSelect);
                 //pass to buildCityList to construct ArrayList of countries and return it
