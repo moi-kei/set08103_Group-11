@@ -42,7 +42,7 @@ jobs:
           docker image rm database
 
   build:
-    name: Build and Start Using docker-compose
+    name: Build test
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
