@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class App
 {
-    private static Connection con = null;
+    static Connection con = null;
 
     /**
      * Main function generates reports in docker outlined in the specification
