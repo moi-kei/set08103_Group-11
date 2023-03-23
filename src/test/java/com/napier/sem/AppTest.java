@@ -113,4 +113,10 @@ class AppTest {
         cities.add(c);
         CityReport.printCities(cities);
     }
+
+    @Test
+    void getAllCountriesTest()
+    {
+        CountryReport.getAllCountries(App.con);
+    }
 }
