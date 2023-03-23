@@ -25,7 +25,7 @@ class AppTest {
     @Test
     void printAllCountriesTestNull()
     {
-        CountryReport.printAllCountries(null);
+        CountryReport.printCountries(null);
     }
 
     /**
@@ -35,7 +35,7 @@ class AppTest {
     void printAllCountriesTestEmpty()
     {
         ArrayList<Country> countries = new ArrayList<>();
-        CountryReport.printAllCountries(countries);
+        CountryReport.printCountries(countries);
     }
 
     /**
@@ -46,7 +46,7 @@ class AppTest {
     {
         ArrayList<Country> countries = new ArrayList<>();
         countries.add(null);
-        CountryReport.printAllCountries(countries);
+        CountryReport.printCountries(countries);
     }
 
     /**
@@ -64,7 +64,7 @@ class AppTest {
         c.setRegion("United Kingdom");
         c.setPopulation(10);
         countries.add(c);
-        CountryReport.printAllCountries(countries);
+        CountryReport.printCountries(countries);
     }
 
 
@@ -112,5 +112,11 @@ class AppTest {
         c.setPopulation(27);
         cities.add(c);
         CityReport.printCities(cities);
+    }
+
+    @Test
+    void getAllCountriesTest()
+    {
+        CountryReport.getAllCountries(App.con);
     }
 }

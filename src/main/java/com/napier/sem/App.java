@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class App
 {
-    private static Connection con = null;
+    static Connection con = null;
 
     /**
      * Main function generates reports in docker outlined in the specification
@@ -33,50 +33,63 @@ public class App
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
-        //Country reports
-
+        /*
+          Country reports
+         */
         //Report 1
         //create ArrayList containing all countries
         ArrayList<Country> countries = CountryReport.getAllCountries(con);
         // Print all countries in the world db
-        CountryReport.printAllCountries(countries);
+        System.out.println("All the countries in the world from largest population to smallest. \r\n");
+        CountryReport.printCountries(countries);
         System.out.println("\r\n \r\n");
 
         //Report 2
         //print all countries in a continent (Europe can be changed to whichever continent)
         String continent = "Europe"; //<-change to desired continent
-        CountryReport.printCountriesContinent(countries, continent);
+        ArrayList<Country> countriesContinent = CountryReport.getAllCountriesContinent(con, continent);
+        System.out.println("All the countries in " + continent + " from largest population to smallest. \r\n");
+        CountryReport.printCountries(countriesContinent);
         System.out.println("\r\n \r\n");
 
         //Report 3
         //print all countries in a region (SA can be changed to whichever continent)
         String region = "South America"; //<-change to desired region
-        CountryReport.printCountriesRegion(countries, region);
+        ArrayList<Country> countriesRegion = CountryReport.getAllCountriesRegion(con, region);
+        System.out.println("All the countries in " + region + " from largest population to smallest. \r\n");
+        CountryReport.printCountries(countriesRegion);
         System.out.println("\r\n \r\n");
 
         //Report 4
         //print  the "n" highest population countries in the world
         int limit = 5; //<-change to desired number of outputs
-        CountryReport.printAllCountries(countries, limit);
+        ArrayList<Country> countriesLimit= CountryReport.getAllCountriesLimit(con,limit);
+        System.out.println("The top " + limit + " countries in the world from largest population to smallest. \r\n");
+        CountryReport.printCountries(countriesLimit);
         System.out.println("\r\n \r\n");
 
         //Report 5
         //print  the "n" highest population countries in a continent
         limit = 7; //<-change to desired number of outputs
         continent = "Africa"; //<-change to desired continent
-        CountryReport.printCountriesContinent(countries, continent, limit);
+        ArrayList<Country> countriesContinentLimit = CountryReport.getAllCountriesContinentLimit(con, continent, limit);
+        System.out.println("The top " + limit + " countries in " + continent + " from largest population to smallest. \r\n");
+        CountryReport.printCountries(countriesContinentLimit);
         System.out.println("\r\n \r\n");
 
         //Report 6
         //print  the "n" highest population countries in a Region
         limit = 5; //<-change to desired number of outputs
         region = "Eastern Asia"; //<-change to desired continent
-        CountryReport.printCountriesRegion(countries, region, limit);
+        ArrayList<Country> countriesRegionLimit = CountryReport.getAllCountriesRegionLimit(con, region, limit);
+        System.out.println("The top " + limit + " the countries in " + region + " from largest population to smallest. \r\n");
+        CountryReport.printCountries(countriesRegionLimit);
         System.out.println("\r\n \r\n");
 
 
-        //City reports
-
+        /*
+          City reports
+         */
         //Report 7
         //create ArrayList of all cities in the world
         ArrayList<City> cities = CityReport.getAllCities(con);
@@ -103,7 +116,7 @@ public class App
         CityReport.printCities(citiesRegion);
         System.out.println("\r\n \r\n");
 
-        //Report 9
+        //Report 10
         //create ArrayList of all cities in a country
         String country = "United Kingdom";  //<-change to desired continent
         ArrayList<City> citiesCountry = CityReport.getAllCitiesCountry(con, country);
@@ -112,7 +125,7 @@ public class App
         CityReport.printCities(citiesCountry);
         System.out.println("\r\n \r\n");
 
-        //Report 10
+        //Report 11
         //create ArrayList of all cities in a district
         String district = "Scotland";  //<-change to desired continent
         ArrayList<City> citiesDistrict = CityReport.getAllCitiesDistrict(con, district);
@@ -150,7 +163,7 @@ public class App
                 System.out.println("Successfully connected");
                 break;
             } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println("Failed to connect to database attempt " + i);
                 System.out.println(sqle.getMessage());
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");

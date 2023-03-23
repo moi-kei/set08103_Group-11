@@ -187,7 +187,6 @@ public class CityReport {
     }
 
     /**
-     * executes a sql query that lists cities in order of population
      * constructs a city, assigns variables based on sql entry
      * then adds the city to an Arraylist which is returned
      *
@@ -199,7 +198,7 @@ public class CityReport {
         try
         {
             {
-                // Create arrayList for countries
+                // Create arrayList for cities
                 ArrayList<City> cities = new ArrayList<>();
                 // Create new country and assign variables
                 while (rset.next())
