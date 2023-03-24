@@ -5,6 +5,11 @@ import com.napier.sem.businessObjects.reports.*;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * This app is coursework for set08103
+ * This app genrates a variety of reports based on information from the world db for a client
+ * {@code @Authors:}  Michael Mackenzie, Nweke Success
+ */
 public class App
 {
     static Connection con = null;
