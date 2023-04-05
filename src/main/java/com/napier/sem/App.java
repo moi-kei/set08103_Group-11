@@ -38,7 +38,7 @@ public class App
          */
         //Report 1
         //create ArrayList containing all countries
-        ArrayList<Country> countries = CountryReport.getAllCountries(con);
+        ArrayList<Country> countries = CountryReport.ExecuteQuery(con, CountryReport.getAllCountries());
         // Print all countries in the world db
         System.out.println("All the countries in the world from largest population to smallest. \r\n");
         CountryReport.printCountries(countries);
@@ -47,7 +47,7 @@ public class App
         //Report 2
         //print all countries in a continent (Europe can be changed to whichever continent)
         String continent = "Europe"; //<-change to desired continent
-        ArrayList<Country> countriesContinent = CountryReport.getAllCountriesContinent(con, continent);
+        ArrayList<Country> countriesContinent = CountryReport.ExecuteQuery(con, CountryReport.getAllCountriesContinent(continent));
         System.out.println("All the countries in " + continent + " from largest population to smallest. \r\n");
         CountryReport.printCountries(countriesContinent);
         System.out.println("\r\n \r\n");
@@ -55,7 +55,7 @@ public class App
         //Report 3
         //print all countries in a region (SA can be changed to whichever continent)
         String region = "South America"; //<-change to desired region
-        ArrayList<Country> countriesRegion = CountryReport.getAllCountriesRegion(con, region);
+        ArrayList<Country> countriesRegion = CountryReport.ExecuteQuery(con, CountryReport.getAllCountriesRegion(region));
         System.out.println("All the countries in " + region + " from largest population to smallest. \r\n");
         CountryReport.printCountries(countriesRegion);
         System.out.println("\r\n \r\n");
@@ -63,7 +63,7 @@ public class App
         //Report 4
         //print  the "n" highest population countries in the world
         int limit = 5; //<-change to desired number of outputs
-        ArrayList<Country> countriesLimit= CountryReport.getAllCountriesLimit(con,limit);
+        ArrayList<Country> countriesLimit= CountryReport.ExecuteQuery(con, CountryReport.getAllCountriesLimit(limit));
         System.out.println("The top " + limit + " countries in the world from largest population to smallest. \r\n");
         CountryReport.printCountries(countriesLimit);
         System.out.println("\r\n \r\n");
@@ -72,7 +72,7 @@ public class App
         //print  the "n" highest population countries in a continent
         limit = 7; //<-change to desired number of outputs
         continent = "Africa"; //<-change to desired continent
-        ArrayList<Country> countriesContinentLimit = CountryReport.getAllCountriesContinentLimit(con, continent, limit);
+        ArrayList<Country> countriesContinentLimit = CountryReport.ExecuteQuery(con, CountryReport.getAllCountriesContinentLimit(continent, limit));
         System.out.println("The top " + limit + " countries in " + continent + " from largest population to smallest. \r\n");
         CountryReport.printCountries(countriesContinentLimit);
         System.out.println("\r\n \r\n");
@@ -81,7 +81,7 @@ public class App
         //print  the "n" highest population countries in a Region
         limit = 5; //<-change to desired number of outputs
         region = "Eastern Asia"; //<-change to desired continent
-        ArrayList<Country> countriesRegionLimit = CountryReport.getAllCountriesRegionLimit(con, region, limit);
+        ArrayList<Country> countriesRegionLimit = CountryReport.ExecuteQuery(con, CountryReport.getAllCountriesRegionLimit(region, limit));
         System.out.println("The top " + limit + " the countries in " + region + " from largest population to smallest. \r\n");
         CountryReport.printCountries(countriesRegionLimit);
         System.out.println("\r\n \r\n");
