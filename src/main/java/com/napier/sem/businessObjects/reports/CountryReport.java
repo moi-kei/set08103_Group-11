@@ -21,11 +21,12 @@ public class CountryReport {
      *
      * @return all countries in the world db in order of population from largest to smallest
      */
-    public static String getAllCountries()
+    public static String getCountries()
     {
         return
                 "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
-                        + "FROM country LEFT JOIN city ON country.Capital = city.ID ORDER BY country.population DESC";
+                        + "FROM country LEFT JOIN city ON country.Capital = city.ID "
+                        + "ORDER BY country.population DESC";
     }
 
     /**
@@ -33,11 +34,12 @@ public class CountryReport {
      *
      * @param limit the limit of the number of counties you want listed
      */
-    public static String getAllCountriesLimit(int limit)
+    public static String getCountries(int limit)
     {
         return
                 "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
-                        + "FROM country LEFT JOIN city ON country.Capital = city.ID ORDER BY country.population DESC LIMIT " + limit ;
+                        + "FROM country LEFT JOIN city ON country.Capital = city.ID "
+                        + "ORDER BY country.population DESC LIMIT " + limit ;
     }
 
     /**
@@ -46,12 +48,13 @@ public class CountryReport {
      * @return all countries in the supplied continent from the world db in order of population from largest to smallest
      * @param continent the continent the listed countries will be from
      */
-    public static String getAllCountriesContinent(String continent)
+    public static String getCountriesContinent(String continent)
     {
         return
                 "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
-                        + "WHERE country.Continent LIKE '" + continent + "' ORDER BY country.population DESC";
+                        + "WHERE country.Continent LIKE '" + continent
+                        + "' ORDER BY country.population DESC";
     }
 
     /**
@@ -61,12 +64,13 @@ public class CountryReport {
      * @param continent the continent the listed coountries will be from
      * @param limit the number of entries to get from database
      */
-    public static String getAllCountriesContinentLimit(String continent, int limit)
+    public static String getCountriesContinent(String continent, int limit)
     {
         return
                 "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
-                        + "WHERE country.Continent LIKE '" + continent + "' ORDER BY country.population DESC LIMIT " + limit;
+                        + "WHERE country.Continent LIKE '" + continent
+                        + "' ORDER BY country.population DESC LIMIT " + limit;
     }
 
     /**
@@ -75,12 +79,13 @@ public class CountryReport {
      * @return all countries in the supplied region from the world db in order of population from largest to smallest
      * @param region the continent the listed countries will be from
      */
-    public static String getAllCountriesRegion(String region)
+    public static String getCountriesRegion(String region)
     {
         return
                 "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
-                        + "WHERE country.Region LIKE '" + region + "' ORDER BY country.population DESC";
+                        + "WHERE country.Region LIKE '" + region
+                        + "' ORDER BY country.population DESC";
     }
 
     /**
@@ -90,12 +95,13 @@ public class CountryReport {
      * @param region the continent the listed countries will be from
      * @param limit the number of entries to get from database
      */
-    public static String getAllCountriesRegionLimit(String region, int limit)
+    public static String getCountriesRegion(String region, int limit)
     {
         return
                 "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
-                        + "WHERE country.Region LIKE '" + region + "' ORDER BY country.population DESC LIMIT " + limit;
+                        + "WHERE country.Region LIKE '" + region
+                        + "' ORDER BY country.population DESC LIMIT " + limit;
     }
 
     /**

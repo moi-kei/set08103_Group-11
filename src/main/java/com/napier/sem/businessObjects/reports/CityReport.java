@@ -17,11 +17,12 @@ public class CityReport {
      * builds SQL query to get city details passed to it
      * @return all cities in the world db in order of population from largest to smallest
      */
-    public static String getAllCities()
+    public static String getCities()
     {
         return
-                "SELECT city.Name, country.Name, city.District, city. population "
-                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code ORDER BY city.population DESC";
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "ORDER BY city.population DESC";
     }
 
     /**
@@ -30,11 +31,12 @@ public class CityReport {
      * @param limit the number of entries to get from database
      * @return all cities in the world db in order of population from largest to smallest
      */
-    public static String getAllCitiesLimit(int limit)
+    public static String getCities(int limit)
     {
         return
-                "SELECT city.Name, country.Name, city.District, city. population "
-                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code ORDER BY city.population DESC LIMIT " + limit;
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
@@ -43,12 +45,13 @@ public class CityReport {
      * @return all cities in the supplied continent from the world db in order of population from largest to smalles
      * @param continent the continent the listed cities will be from
      */
-    public static String getAllCitiesContinent(String continent)
+    public static String getCitiesContinent(String continent)
     {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                        + "WHERE country.Continent LIKE '" + continent + "' ORDER BY city.population DESC";
+                        + "WHERE country.Continent LIKE '" + continent
+                        + "' ORDER BY city.population DESC";
     }
 
     /**
@@ -58,12 +61,13 @@ public class CityReport {
      * @param continent the continent the listed cities will be from
      * @param limit the number of entries to get from database
      */
-    public static String getAllCitiesContinentLimit(String continent, int limit)
+    public static String getCitiesContinent(String continent, int limit)
     {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                        + "WHERE country.Continent LIKE '" + continent + "' ORDER BY city.population DESC LIMIT " + limit;
+                        + "WHERE country.Continent LIKE '" + continent
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
@@ -72,12 +76,13 @@ public class CityReport {
      * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param region the region the listed cities will be from
      */
-    public static String getAllCitiesRegion(String region)
+    public static String getCitiesRegion(String region)
     {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                        + "WHERE country.Region LIKE '" + region + "' ORDER BY city.population DESC";
+                        + "WHERE country.Region LIKE '" + region
+                        + "' ORDER BY city.population DESC";
     }
 
     /**
@@ -87,12 +92,13 @@ public class CityReport {
      * @param region the region the listed cities will be from
      * @param limit the number of entries to get from database
      */
-    public static String getAllCitiesRegionLimit(String region, int limit)
+    public static String getCitiesRegion(String region, int limit)
     {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                        + "WHERE country.Region LIKE '" + region + "' ORDER BY city.population DESC LIMIT " + limit;
+                        + "WHERE country.Region LIKE '" + region
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
@@ -101,12 +107,13 @@ public class CityReport {
      * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param country the country the listed cities will be from
      */
-    public static String getAllCitiesCountry(String country)
+    public static String getCitiesCountry(String country)
     {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                        + "WHERE country.Name LIKE '" + country + "' ORDER BY city.population DESC";
+                        + "WHERE country.Name LIKE '" + country
+                        + "' ORDER BY city.population DESC";
     }
 
     /**
@@ -116,12 +123,13 @@ public class CityReport {
      * @param country the country the listed cities will be from
      * @param limit the number of entries to get from database
      */
-    public static String getAllCitiesCountryLimit(String country, int limit)
+    public static String getCitiesCountry(String country, int limit)
     {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                        + "WHERE country.Name LIKE '" + country + "' ORDER BY city.population DESC LIMIT " + limit;
+                        + "WHERE country.Name LIKE '" + country
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
@@ -130,12 +138,13 @@ public class CityReport {
      * @return all cities in the supplied district from the world db in order of population from largest to smallest
      * @param district the country the listed cities will be from
      */
-    public static String getAllCitiesDistrict(String district)
+    public static String getCitiesDistrict(String district)
     {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                        + "WHERE city.District LIKE '" + district + "' ORDER BY city.population DESC";
+                        + "WHERE city.District LIKE '" + district
+                        + "' ORDER BY city.population DESC";
     }
 
     /**
@@ -145,12 +154,13 @@ public class CityReport {
      * @param district the country the listed cities will be from
      * @param limit the number of entries to get from database
      */
-    public static String getAllCitiesDistrictLimit(String district, int limit)
+    public static String getCitiesDistrict(String district, int limit)
     {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                        + "WHERE city.District LIKE '" + district + "' ORDER BY city.population DESC LIMIT " + limit;
+                        + "WHERE city.District LIKE '" + district
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
     }
 
     public static ArrayList<City> ExecuteQuery(Connection con, String query){
