@@ -248,6 +248,9 @@ public class App
         System.out.println("The population of " + city + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getCityPop(city)));
         System.out.println("\r\n \r\n");
 
+        //report 32
+        LanguageReport.printLanguages(LanguageReport.getLanguages(con));
+
         // Disconnect from database
         a.disconnect();
     }
