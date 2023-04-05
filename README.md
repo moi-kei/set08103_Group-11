@@ -52,13 +52,12 @@ You work for an organisation that requires reporting on population information. 
 | 21 | The top N populated capital cities in a continent where N is provided by the user |  |  |
 | 22 | The top N populated capital cities in a region where N is provided by the user |  |  |
 | 23 | The population of people, people living in cities, and people not living in cities in each continent |  |  |
-| 28 | The population of people, people living in cities, and people not living in cities in each region |  |  |
-| 29 | The population of people, people living in cities, and people not living in cities in each country |  |  |
-| 30 | The population of the world |  |  |
-| 31 | The population of a continent |  |  |
-| 32 | The population of a region |  |  |
-| 33 | The population of a country |  |  |
-| 34 | The population of a district |  |  |
-| 35 | The population of a city |  |  |
-| 36 | The number of people who speak Chinese, English, Hindi, Spanish or Arabic from greatest number to smallest |  |  |
-| 37 | The percentage of the world population |  |  |
+| 24 | The population of people, people living in cities, and people not living in cities in each region |  |  |
+| 25 | The population of people, people living in cities, and people not living in cities in each country |  |  |
+| 26 | The population of the world |  |  |
+| 27 | The population of a continent |  |  |
+| 28 | The population of a region |  |  |
+| 29 | The population of a country |  |  |
+| 30 | The population of a district |  |  |
+| 31 | The population of a city |  |  |
+| 32 | The number of people who speak Chinese, English, Hindi, Spanish or Arabic from greatest number to smallest |  |  |
