@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import com.napier.sem.businessObjects.Population;
 import com.napier.sem.businessObjects.reports.*;
 import java.sql.*;
 
@@ -198,6 +199,24 @@ public class App
         //print all cities in the world db in order of population
         System.out.println("The top " + limit + " capital cities in " + region + " from largest population to smallest. \r\n");
         CapitalCityReport.printCapitalCities(CityReport.ExecuteQuery(con, CapitalCityReport.getCapitalCitiesRegion(region, limit)));
+        System.out.println("\r\n \r\n");
+
+        //Report 23
+        continent = "Europe";
+        Population continentPopulation = PopulationReport.ExecuteQuery(con, PopulationReport.getContinentPopulation(continent), continent);
+        PopulationReport.printPopulation(continentPopulation);
+        System.out.println("\r\n \r\n");
+
+        //Report 24
+        region = "Caribbean";
+        Population regionPopulation = PopulationReport.ExecuteQuery(con, PopulationReport.getRegionPopulation(region), region);
+        PopulationReport.printPopulation(regionPopulation);
+        System.out.println("\r\n \r\n");
+
+        //Report 25
+        country = "ThaiLand";
+        Population countryPopulation = PopulationReport.ExecuteQuery(con, PopulationReport.getCountryPopulation(country), country);
+        PopulationReport.printPopulation(countryPopulation);
         System.out.println("\r\n \r\n");
 
         // Disconnect from database
