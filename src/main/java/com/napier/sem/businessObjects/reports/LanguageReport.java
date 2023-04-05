@@ -56,7 +56,7 @@ public class LanguageReport {
     {
         if(languages != null && !languages.isEmpty()) {
             for (Language l : languages) {
-                System.out.println("Language :" + l.getName() + "\nNumber of speakers: " + l.getPopulation() + "\nPercentage of world population: " + l.getPercentage() + "\n");
+                System.out.println("Language :" + l.getName() + "\nNumber of speakers: " + l.getPopulation() + "\nPercentage of world population: " + l.getPercentage() + "%\n");
             }
         }
         else
