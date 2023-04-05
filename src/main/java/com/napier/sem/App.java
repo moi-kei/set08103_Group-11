@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import com.napier.sem.businessObjects.Population;
 import com.napier.sem.businessObjects.reports.*;
 import java.sql.*;
 
@@ -198,6 +199,53 @@ public class App
         //print all cities in the world db in order of population
         System.out.println("The top " + limit + " capital cities in " + region + " from largest population to smallest. \r\n");
         CapitalCityReport.printCapitalCities(CityReport.ExecuteQuery(con, CapitalCityReport.getCapitalCitiesRegion(region, limit)));
+        System.out.println("\r\n \r\n");
+
+        //Report 23
+        continent = "Europe";
+        Population continentPopulation = PopulationReport.ExecuteQuery(con, PopulationReport.getContinentPopulation(continent), continent);
+        PopulationReport.printPopulation(continentPopulation);
+        System.out.println("\r\n \r\n");
+
+        //Report 24
+        region = "Caribbean";
+        Population regionPopulation = PopulationReport.ExecuteQuery(con, PopulationReport.getRegionPopulation(region), region);
+        PopulationReport.printPopulation(regionPopulation);
+        System.out.println("\r\n \r\n");
+
+        //Report 25
+        country = "ThaiLand";
+        Population countryPopulation = PopulationReport.ExecuteQuery(con, PopulationReport.getCountryPopulation(country), country);
+        PopulationReport.printPopulation(countryPopulation);
+        System.out.println("\r\n \r\n");
+
+        //report 26
+        System.out.println("The population of the world is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getWorldPop()));
+        System.out.println("\r\n \r\n");
+
+        //report 27
+        continent = "Africa";
+        System.out.println("The population of " + continent + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getContinentPop(continent)));
+        System.out.println("\r\n \r\n");
+
+        //report 28
+        region = "Eastern Europe";
+        System.out.println("The population of " + region + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getRegionPop(region)));
+        System.out.println("\r\n \r\n");
+
+        //report 29
+        country = "United States";
+        System.out.println("The population of " + country + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getCountryPop(country)));
+        System.out.println("\r\n \r\n");
+
+        //report 30
+        district = "Scotland";
+        System.out.println("The population of " + district + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getDistrictPop(district)));
+        System.out.println("\r\n \r\n");
+
+        //report 31
+        String city = "Edinburgh";
+        System.out.println("The population of " + city + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getCityPop(city)));
         System.out.println("\r\n \r\n");
 
         // Disconnect from database
