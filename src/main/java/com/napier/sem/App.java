@@ -219,6 +219,35 @@ public class App
         PopulationReport.printPopulation(countryPopulation);
         System.out.println("\r\n \r\n");
 
+        //report 26
+        System.out.println("The population of the world is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getWorldPop()));
+        System.out.println("\r\n \r\n");
+
+        //report 27
+        continent = "Africa";
+        System.out.println("The population of " + continent + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getContinentPop(continent)));
+        System.out.println("\r\n \r\n");
+
+        //report 28
+        region = "Eastern Europe";
+        System.out.println("The population of " + region + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getRegionPop(region)));
+        System.out.println("\r\n \r\n");
+
+        //report 29
+        country = "United States";
+        System.out.println("The population of " + country + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getCountryPop(country)));
+        System.out.println("\r\n \r\n");
+
+        //report 30
+        district = "Scotland";
+        System.out.println("The population of " + district + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getDistrictPop(district)));
+        System.out.println("\r\n \r\n");
+
+        //report 31
+        String city = "Edinburgh";
+        System.out.println("The population of " + city + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getCityPop(city)));
+        System.out.println("\r\n \r\n");
+
         // Disconnect from database
         a.disconnect();
     }
