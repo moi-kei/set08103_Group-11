@@ -1,9 +1,7 @@
 package com.napier.sem;
 
-import com.napier.sem.businessObjects.*;
 import com.napier.sem.businessObjects.reports.*;
 import java.sql.*;
-import java.util.ArrayList;
 
 public class App
 {
@@ -37,53 +35,46 @@ public class App
           Country reports
          */
         //Report 1
-        //create ArrayList containing all countries
-        ArrayList<Country> countries = CountryReport.getAllCountries(con);
         // Print all countries in the world db
         System.out.println("All the countries in the world from largest population to smallest. \r\n");
-        CountryReport.printCountries(countries);
+        CountryReport.printCountries(CountryReport.ExecuteQuery(con, CountryReport.getCountries()));
         System.out.println("\r\n \r\n");
 
         //Report 2
-        //print all countries in a continent (Europe can be changed to whichever continent)
+        //print all countries in a continent
         String continent = "Europe"; //<-change to desired continent
-        ArrayList<Country> countriesContinent = CountryReport.getAllCountriesContinent(con, continent);
         System.out.println("All the countries in " + continent + " from largest population to smallest. \r\n");
-        CountryReport.printCountries(countriesContinent);
+        CountryReport.printCountries(CountryReport.ExecuteQuery(con, CountryReport.getCountriesContinent(continent)));
         System.out.println("\r\n \r\n");
 
         //Report 3
-        //print all countries in a region (SA can be changed to whichever continent)
+        //print all countries in a region
         String region = "South America"; //<-change to desired region
-        ArrayList<Country> countriesRegion = CountryReport.getAllCountriesRegion(con, region);
         System.out.println("All the countries in " + region + " from largest population to smallest. \r\n");
-        CountryReport.printCountries(countriesRegion);
+        CountryReport.printCountries(CountryReport.ExecuteQuery(con, CountryReport.getCountriesRegion(region)));
         System.out.println("\r\n \r\n");
 
         //Report 4
         //print  the "n" highest population countries in the world
         int limit = 5; //<-change to desired number of outputs
-        ArrayList<Country> countriesLimit= CountryReport.getAllCountriesLimit(con,limit);
         System.out.println("The top " + limit + " countries in the world from largest population to smallest. \r\n");
-        CountryReport.printCountries(countriesLimit);
+        CountryReport.printCountries(CountryReport.ExecuteQuery(con, CountryReport.getCountries(limit)));
         System.out.println("\r\n \r\n");
 
         //Report 5
         //print  the "n" highest population countries in a continent
         limit = 7; //<-change to desired number of outputs
         continent = "Africa"; //<-change to desired continent
-        ArrayList<Country> countriesContinentLimit = CountryReport.getAllCountriesContinentLimit(con, continent, limit);
         System.out.println("The top " + limit + " countries in " + continent + " from largest population to smallest. \r\n");
-        CountryReport.printCountries(countriesContinentLimit);
+        CountryReport.printCountries(CountryReport.ExecuteQuery(con, CountryReport.getCountriesContinent(continent, limit)));
         System.out.println("\r\n \r\n");
 
         //Report 6
         //print  the "n" highest population countries in a Region
         limit = 5; //<-change to desired number of outputs
         region = "Eastern Asia"; //<-change to desired continent
-        ArrayList<Country> countriesRegionLimit = CountryReport.getAllCountriesRegionLimit(con, region, limit);
         System.out.println("The top " + limit + " the countries in " + region + " from largest population to smallest. \r\n");
-        CountryReport.printCountries(countriesRegionLimit);
+        CountryReport.printCountries(CountryReport.ExecuteQuery(con, CountryReport.getCountriesRegion(region, limit)));
         System.out.println("\r\n \r\n");
 
 
@@ -91,47 +82,122 @@ public class App
           City reports
          */
         //Report 7
-        //create ArrayList of all cities in the world
-        ArrayList<City> cities = CityReport.getAllCities(con);
         //print all cities in the world db in order of population
         System.out.println("All the cities in the world from largest population to smallest. \r\n");
-        CityReport.printCities(cities);
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCities()));
         System.out.println("\r\n \r\n");
 
         //Report 8
-        //create ArrayList of all cities in a continent
         continent = "Oceania";  //<-change to desired continent
-        ArrayList<City> citiesContinent = CityReport.getAllCitiesContinent(con, continent);
         //print all cities in the world db in order of population
         System.out.println("All the cities in " + continent + " from largest population to smallest. \r\n");
-        CityReport.printCities(citiesContinent);
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCitiesContinent(continent)));
         System.out.println("\r\n \r\n");
 
         //Report 9
-        //create ArrayList of all cities in a region
-        region = "Southern Europe";  //<-change to desired continent
-        ArrayList<City> citiesRegion = CityReport.getAllCitiesRegion(con, region);
+        region = "Southern Europe";  //<-change to desired region
         //print all cities in the world db in order of population
         System.out.println("All the cities in " + region + " from largest population to smallest. \r\n");
-        CityReport.printCities(citiesRegion);
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCitiesRegion(region)));
         System.out.println("\r\n \r\n");
 
         //Report 10
-        //create ArrayList of all cities in a country
-        String country = "United Kingdom";  //<-change to desired continent
-        ArrayList<City> citiesCountry = CityReport.getAllCitiesCountry(con, country);
+        String country = "United Kingdom";  //<-change to desired country
         //print all cities in the world db in order of population
         System.out.println("All the cities in " + country + " from largest population to smallest. \r\n");
-        CityReport.printCities(citiesCountry);
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCitiesCountry(country)));
         System.out.println("\r\n \r\n");
 
         //Report 11
-        //create ArrayList of all cities in a district
-        String district = "Scotland";  //<-change to desired continent
-        ArrayList<City> citiesDistrict = CityReport.getAllCitiesDistrict(con, district);
+        String district = "Scotland";  //<-change to desired district
         //print all cities in the world db in order of population
         System.out.println("All the cities in " + district + " from largest population to smallest. \r\n");
-        CityReport.printCities(citiesDistrict);
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCitiesDistrict(district)));
+        System.out.println("\r\n \r\n");
+
+        //Report 12
+        limit = 10;  //<-change to desired continent
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in the world from largest population to smallest. \r\n");
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCities(limit)));
+        System.out.println("\r\n \r\n");
+
+        //Report 13
+        continent = "Asia";  //<-change to desired continent
+        limit = 8;  //<-change to desired continent
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in " + continent + " from largest population to smallest. \r\n");
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCitiesContinent(continent, limit)));
+        System.out.println("\r\n \r\n");
+
+        //Report 14
+        region = "Southern Europe";  //<-change to desired region
+        limit = 5;  //<-change to desired continent
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in " + region + " from largest population to smallest. \r\n");
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCitiesRegion(region, limit)));
+        System.out.println("\r\n \r\n");
+
+        //Report 15
+        country = "United Kingdom";  //<-change to desired country
+        limit = 7;  //<-change to desired continent
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in " + country + " from largest population to smallest. \r\n");
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCitiesCountry(country, limit)));
+        System.out.println("\r\n \r\n");
+
+        //Report 16
+        district = "Scotland";  //<-change to desired district
+        limit = 3;  //<-change to desired continent
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in " + district + " from largest population to smallest. \r\n");
+        CityReport.printCities(CityReport.ExecuteQuery(con, CityReport.getCitiesDistrict(district, limit)));
+        System.out.println("\r\n \r\n");
+
+        /*
+        Capital City reports
+         */
+        //Report 17
+        //print all cities in the world db in order of population
+        System.out.println("All the capital cities in the world from largest population to smallest. \r\n");
+        CapitalCityReport.printCapitalCities(CityReport.ExecuteQuery(con, CapitalCityReport.getCapitalCities()));
+        System.out.println("\r\n \r\n");
+
+        //Report 18
+        continent = "Europe";  //<-change to desired continent
+        //print all cities in the world db in order of population
+        System.out.println("All the capital cities in " + continent + " from largest population to smallest. \r\n");
+        CapitalCityReport.printCapitalCities(CityReport.ExecuteQuery(con, CapitalCityReport.getCapitalCitiesContinent(continent)));
+        System.out.println("\r\n \r\n");
+
+        //Report 19
+        region = "South America";  //<-change to desired region
+        //print all cities in the world db in order of population
+        System.out.println("All the capital cities in " + region + " from largest population to smallest. \r\n");
+        CapitalCityReport.printCapitalCities(CityReport.ExecuteQuery(con, CapitalCityReport.getCapitalCitiesRegion(region)));
+        System.out.println("\r\n \r\n");
+
+        //Report 20
+        limit = 10;  //<-change to desired limit
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " capital cities in the world from largest population to smallest. \r\n");
+        CapitalCityReport.printCapitalCities(CityReport.ExecuteQuery(con, CapitalCityReport.getCapitalCities(limit)));
+        System.out.println("\r\n \r\n");
+
+        //Report 21
+        limit = 5;  //<-change to desired limit
+        continent = "Africa";  //<-change to desired continent
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " capital cities in " + continent + " from largest population to smallest. \r\n");
+        CapitalCityReport.printCapitalCities(CityReport.ExecuteQuery(con, CapitalCityReport.getCapitalCitiesContinent(continent, limit)));
+        System.out.println("\r\n \r\n");
+
+        //Report 22
+        region = "Southern Europe";  //<-change to desired region
+        limit = 4;
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " capital cities in " + region + " from largest population to smallest. \r\n");
+        CapitalCityReport.printCapitalCities(CityReport.ExecuteQuery(con, CapitalCityReport.getCapitalCitiesRegion(region, limit)));
         System.out.println("\r\n \r\n");
 
         // Disconnect from database

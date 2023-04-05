@@ -15,166 +15,164 @@ public class CityReport {
 
     /**
      * builds SQL query to get city details passed to it
-     * passes the query to the executeCityQuery function to execute
-     * then returns the list of cities that it created
-     *
      * @return all cities in the world db in order of population from largest to smallest
-     * @param con the connection to the database
      */
-    public static ArrayList<City> getAllCities(Connection con){
+    public static String getCities()
+    {
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "ORDER BY city.population DESC";
+    }
 
-        try
-        {
-            {
-                // Create an SQL statement
-                Statement stmt = con.createStatement();
-                //construct SQL query
-                String strSelect =
-                        "SELECT city.Name, country.Name, city.District, city. population "
-                                + "FROM city LEFT JOIN country ON city.CountryCode = country.Code ORDER BY city.population DESC";
-                //get ResultSet
-                ResultSet rset = stmt.executeQuery(strSelect);
-                //pass to buildCityList to construct ArrayList of cities
-                return buildCityList(rset);
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
+    /**
+     * builds SQL query to get city details passed to it
+     *
+     * @param limit the number of entries to get from database
+     * @return all cities in the world db in order of population from largest to smallest
+     */
+    public static String getCities(int limit)
+    {
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
      * builds SQL query using the continent string passed to it
-     * passes the query to the executeCityQuery function to execute
-     * then returns the list of cities that it created
      *
-     * @return all cities in the supplied continent from the world db in order of population from largest to smallest
-     * @param con the connection to the database
+     * @return all cities in the supplied continent from the world db in order of population from largest to smalles
      * @param continent the continent the listed cities will be from
      */
-    public static ArrayList<City> getAllCitiesContinent(Connection con, String continent)
+    public static String getCitiesContinent(String continent)
     {
-        try
-        {
-            {
-                // Create an SQL statement
-                Statement stmt = con.createStatement();
-                //construct SQL query
-                String strSelect =
-                        "SELECT city.Name, country.Name, city.District, city.population "
-                                + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                                + "WHERE country.Continent LIKE '" + continent + "' ORDER BY city.population DESC";
-                //get ResultSet
-                ResultSet rset = stmt.executeQuery(strSelect);
-                //pass to buildCityList to construct ArrayList of cities and return it
-                return buildCityList(rset);
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "WHERE country.Continent LIKE '" + continent
+                        + "' ORDER BY city.population DESC";
+    }
+
+    /**
+     * builds SQL query using the continent string passed to it
+     *
+     * @return all cities in the supplied continent from the world db in order of population from largest to smallest
+     * @param continent the continent the listed cities will be from
+     * @param limit the number of entries to get from database
+     */
+    public static String getCitiesContinent(String continent, int limit)
+    {
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "WHERE country.Continent LIKE '" + continent
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
      * builds SQL query using the region string passed to it
-     * passes the query to the executeCityQuery function to execute
-     * then returns the list of cities that it created
      *
      * @return all cities in the supplied region from the world db in order of population from largest to smallest
-     * @param con the connection to the database
      * @param region the region the listed cities will be from
      */
-    public static ArrayList<City> getAllCitiesRegion(Connection con, String region)
+    public static String getCitiesRegion(String region)
     {
-        try
-        {
-            {
-                // Create an SQL statement
-                Statement stmt = con.createStatement();
-                //construct SQL query
-                String strSelect =
-                        "SELECT city.Name, country.Name, city.District, city.population "
-                                + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                                + "WHERE country.Region LIKE '" + region + "' ORDER BY city.population DESC";
-                //get ResultSet
-                ResultSet rset = stmt.executeQuery(strSelect);
-                //pass to buildCityList to construct ArrayList of cities and return it
-                return buildCityList(rset);
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "WHERE country.Region LIKE '" + region
+                        + "' ORDER BY city.population DESC";
     }
 
     /**
      * builds SQL query using the region string passed to it
-     * passes the query to the executeCityQuery function to execute
-     * then returns the list of cities that it created
      *
      * @return all cities in the supplied region from the world db in order of population from largest to smallest
-     * @param con the connection to the database
-     * @param country the country the listed cities will be from
+     * @param region the region the listed cities will be from
+     * @param limit the number of entries to get from database
      */
-    public static ArrayList<City> getAllCitiesCountry(Connection con, String country)
+    public static String getCitiesRegion(String region, int limit)
     {
-        try
-        {
-            {
-                // Create an SQL statement
-                Statement stmt = con.createStatement();
-                //construct SQL query
-                String strSelect =
-                        "SELECT city.Name, country.Name, city.District, city.population "
-                                + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                                + "WHERE country.Name LIKE '" + country + "' ORDER BY city.population DESC";
-                //get ResultSet
-                ResultSet rset = stmt.executeQuery(strSelect);
-                //pass to buildCityList to construct ArrayList of cities and return it
-                return buildCityList(rset);
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
-        }
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "WHERE country.Region LIKE '" + region
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
      * builds SQL query using the region string passed to it
-     * passes the query to the executeCityQuery function to execute
-     * then returns the list of cities that it created
+     *
+     * @return all cities in the supplied region from the world db in order of population from largest to smallest
+     * @param country the country the listed cities will be from
+     */
+    public static String getCitiesCountry(String country)
+    {
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "WHERE country.Name LIKE '" + country
+                        + "' ORDER BY city.population DESC";
+    }
+
+    /**
+     * builds SQL query using the region string passed to it
+     *
+     * @return all cities in the supplied region from the world db in order of population from largest to smallest
+     * @param country the country the listed cities will be from
+     * @param limit the number of entries to get from database
+     */
+    public static String getCitiesCountry(String country, int limit)
+    {
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "WHERE country.Name LIKE '" + country
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
+    }
+
+    /**
+     * builds SQL query using the region string passed to it
      *
      * @return all cities in the supplied district from the world db in order of population from largest to smallest
-     * @param con the connection to the database
      * @param district the country the listed cities will be from
      */
-    public static ArrayList<City> getAllCitiesDistrict(Connection con, String district)
+    public static String getCitiesDistrict(String district)
     {
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "WHERE city.District LIKE '" + district
+                        + "' ORDER BY city.population DESC";
+    }
+
+    /**
+     * builds SQL query using the region string passed to it
+     *
+     * @return all cities in the supplied district from the world db in order of population from largest to smallest
+     * @param district the country the listed cities will be from
+     * @param limit the number of entries to get from database
+     */
+    public static String getCitiesDistrict(String district, int limit)
+    {
+        return
+                "SELECT city.Name, country.Name, city.District, city.population "
+                        + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
+                        + "WHERE city.District LIKE '" + district
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
+    }
+
+    public static ArrayList<City> ExecuteQuery(Connection con, String query){
+
         try
         {
             {
                 // Create an SQL statement
                 Statement stmt = con.createStatement();
-                //construct SQL query
-                String strSelect =
-                        "SELECT city.Name, country.Name, city.District, city.population "
-                                + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
-                                + "WHERE city.District LIKE '" + district + "' ORDER BY city.population DESC";
                 //get ResultSet
-                ResultSet rset = stmt.executeQuery(strSelect);
-                //pass to buildCityList to construct ArrayList of cities and return it
+                ResultSet rset = stmt.executeQuery(query);
+                //pass to buildCityList to construct ArrayList of cities
                 return buildCityList(rset);
             }
         }
