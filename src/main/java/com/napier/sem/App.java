@@ -109,7 +109,7 @@ public class App
 
         //Report 9
         //create ArrayList of all cities in a region
-        region = "Southern Europe";  //<-change to desired continent
+        region = "Southern Europe";  //<-change to desired region
         ArrayList<City> citiesRegion = CityReport.ExecuteQuery(con, CityReport.getAllCitiesRegion(region));
         //print all cities in the world db in order of population
         System.out.println("All the cities in " + region + " from largest population to smallest. \r\n");
@@ -118,7 +118,7 @@ public class App
 
         //Report 10
         //create ArrayList of all cities in a country
-        String country = "United Kingdom";  //<-change to desired continent
+        String country = "United Kingdom";  //<-change to desired country
         ArrayList<City> citiesCountry = CityReport.ExecuteQuery(con, CityReport.getAllCitiesCountry(country));
         //print all cities in the world db in order of population
         System.out.println("All the cities in " + country + " from largest population to smallest. \r\n");
@@ -127,11 +127,60 @@ public class App
 
         //Report 11
         //create ArrayList of all cities in a district
-        String district = "Scotland";  //<-change to desired continent
+        String district = "Scotland";  //<-change to desired district
         ArrayList<City> citiesDistrict = CityReport.ExecuteQuery(con, CityReport.getAllCitiesDistrict(district));
         //print all cities in the world db in order of population
         System.out.println("All the cities in " + district + " from largest population to smallest. \r\n");
         CityReport.printCities(citiesDistrict);
+        System.out.println("\r\n \r\n");
+
+        //Report 12
+        limit = 10;
+        //create ArrayList of all cities in the world
+        ArrayList<City> citiesLimit = CityReport.ExecuteQuery(con, CityReport.getAllCitiesLimit(limit));
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in the world from largest population to smallest. \r\n");
+        CityReport.printCities(citiesLimit);
+        System.out.println("\r\n \r\n");
+
+        //Report 13
+        //create ArrayList of all cities in a continent
+        continent = "Asia";  //<-change to desired continent
+        limit = 8;
+        ArrayList<City> citiesContinentLimit = CityReport.ExecuteQuery(con, CityReport.getAllCitiesContinentLimit(continent, limit));
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in " + continent + " from largest population to smallest. \r\n");
+        CityReport.printCities(citiesContinentLimit);
+        System.out.println("\r\n \r\n");
+
+        //Report 14
+        //create ArrayList of all cities in a region
+        region = "Southern Europe";  //<-change to desired region
+        limit = 5;
+        ArrayList<City> citiesRegionLimit = CityReport.ExecuteQuery(con, CityReport.getAllCitiesRegionLimit(region, limit));
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in " + region + " from largest population to smallest. \r\n");
+        CityReport.printCities(citiesRegionLimit);
+        System.out.println("\r\n \r\n");
+
+        //Report 15
+        //create ArrayList of all cities in a country
+        country = "United Kingdom";  //<-change to desired country
+        limit = 7;
+        ArrayList<City> citiesCountryLimit = CityReport.ExecuteQuery(con, CityReport.getAllCitiesCountryLimit(country, limit));
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in " + country + " from largest population to smallest. \r\n");
+        CityReport.printCities(citiesCountryLimit);
+        System.out.println("\r\n \r\n");
+
+        //Report 16
+        //create ArrayList of all cities in a district
+        district = "Scotland";  //<-change to desired district
+        limit = 3;
+        ArrayList<City> citiesDistrictLimit = CityReport.ExecuteQuery(con, CityReport.getAllCitiesDistrictLimit(district, limit));
+        //print all cities in the world db in order of population
+        System.out.println("The top " + limit + " cities in " + district + " from largest population to smallest. \r\n");
+        CityReport.printCities(citiesDistrictLimit);
         System.out.println("\r\n \r\n");
 
         // Disconnect from database
