@@ -59,5 +59,5 @@ You work for an organisation that requires reporting on population information. 
 | 28 | The population of a region | YES | ![](screenshots/28.png) |
 | 29 | The population of a country | YES | ![](screenshots/29.png) |
 | 30 | The population of a district | YES | ![](screenshots/30.png) |
-| 31 | The population of a city | YES | ![](screenshots/32.png) |
+| 31 | The population of a city | YES | ![](screenshots/31.png) |
 | 32 | The number of people who speak Chinese, English, Hindi, Spanish or Arabic from greatest number to smallest | YES | ![](screenshots/32.png) |
