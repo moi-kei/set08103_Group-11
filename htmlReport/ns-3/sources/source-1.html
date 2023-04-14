@@ -1,0 +1,236 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId" lang="">
+<head>
+  <title>Coverage Report > CapitalCityReport</title>
+  <style>
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.napier.sem.businessObjects.reports</a>
+</div>
+
+<h1>Coverage Summary for Class: CapitalCityReport (com.napier.sem.businessObjects.reports)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CapitalCityReport</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    87.5%
+  </span>
+  <span class="absValue">
+    (7/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.1%
+  </span>
+  <span class="absValue">
+    (16/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.napier.sem.businessObjects.reports;
+&nbsp;
+&nbsp;import com.napier.sem.businessObjects.City;
+&nbsp;import java.util.ArrayList;
+&nbsp;
+&nbsp;/**
+&nbsp; * Class acting as a container for static function related to creating capital city reports
+&nbsp; * {@code @Authors:} Michael Mackenzie, Nweke Success
+&nbsp; */
+<b class="nc">&nbsp;public class CapitalCityReport {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * builds SQL query to get city details passed to it
+&nbsp;     *
+&nbsp;     * @return a query for getting all capital cities from the db
+&nbsp;     */
+&nbsp;    public static String getCapitalCities()
+&nbsp;    {
+<b class="fc">&nbsp;        return</b>
+&nbsp;                &quot;SELECT city.Name, country.Name, city.District, city.population &quot;
+&nbsp;                        + &quot;FROM country LEFT JOIN city ON country.Capital = city.ID &quot;
+&nbsp;                        + &quot;WHERE city.Name IS NOT NULL &quot;
+&nbsp;                        + &quot;ORDER BY city.population DESC&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * builds SQL query to get city details passed to it
+&nbsp;     *
+&nbsp;     * @param limit the limit of the number of counties you want listed
+&nbsp;     * @return a query for getting a number of capital cities from the db
+&nbsp;     */
+&nbsp;    public static String getCapitalCities(int limit)
+&nbsp;    {
+<b class="fc">&nbsp;        return</b>
+&nbsp;                &quot;SELECT city.Name, country.Name, city.District, city.population &quot;
+&nbsp;                        + &quot;FROM country LEFT JOIN city ON country.Capital = city.ID &quot;
+&nbsp;                        + &quot;WHERE city.Name IS NOT NULL &quot;
+&nbsp;                        + &quot;ORDER BY city.population DESC LIMIT &quot; + limit ;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * builds SQL query to get city details passed to it
+&nbsp;     *
+&nbsp;     * @param continent the continent the listed countries will be from
+&nbsp;     * @return a query for getting all capital cities in a continent from the db
+&nbsp;     */
+&nbsp;    public static String getCapitalCitiesContinent(String continent)
+&nbsp;    {
+<b class="fc">&nbsp;        return</b>
+&nbsp;                &quot;SELECT city.Name, country.Name, city.District, city.population &quot;
+&nbsp;                        + &quot;FROM country LEFT JOIN city ON country.Capital = city.ID &quot;
+&nbsp;                        + &quot;WHERE city.Name IS NOT NULL &quot;
+&nbsp;                        + &quot;AND country.Continent LIKE &#39;&quot; + continent
+&nbsp;                        + &quot;&#39; ORDER BY city.population DESC&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * builds SQL query to get city details passed to it
+&nbsp;     *
+&nbsp;     * @param continent the continent the listed countries will be from
+&nbsp;     * @param limit the limit of the number of counties you want listed
+&nbsp;     * @return a query for getting a number of capital cities in a continent from the db
+&nbsp;     */
+&nbsp;    public static String getCapitalCitiesContinent(String continent, int limit)
+&nbsp;    {
+<b class="fc">&nbsp;        return</b>
+&nbsp;                &quot;SELECT city.Name, country.Name, city.District, city.population &quot;
+&nbsp;                        + &quot;FROM country LEFT JOIN city ON country.Capital = city.ID &quot;
+&nbsp;                        + &quot;WHERE city.Name IS NOT NULL &quot;
+&nbsp;                        + &quot;AND country.Continent LIKE &#39;&quot; + continent
+&nbsp;                        + &quot;&#39; ORDER BY city.population DESC LIMIT &quot; + limit ;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * builds SQL query to get city details passed to it
+&nbsp;     *
+&nbsp;     * @param region the region the listed countries will be from
+&nbsp;     * @return a query for getting all capital cities in a region from the db
+&nbsp;     */
+&nbsp;    public static String getCapitalCitiesRegion(String region)
+&nbsp;    {
+<b class="fc">&nbsp;        return</b>
+&nbsp;                &quot;SELECT city.Name, country.Name, city.District, city.population &quot;
+&nbsp;                        + &quot;FROM country LEFT JOIN city ON country.Capital = city.ID &quot;
+&nbsp;                        + &quot;WHERE city.Name IS NOT NULL &quot;
+&nbsp;                        + &quot;AND country.Region LIKE &#39;&quot; + region
+&nbsp;                        + &quot;&#39; ORDER BY city.population DESC&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * builds SQL query to get city details passed to it
+&nbsp;     *
+&nbsp;     * @param region the region the listed countries will be from
+&nbsp;     * @param limit the limit of the number of counties you want listed
+&nbsp;     * @return a query for getting a number of capital cities in a region from the db
+&nbsp;     */
+&nbsp;    public static String getCapitalCitiesRegion(String region, int limit)
+&nbsp;    {
+<b class="fc">&nbsp;        return</b>
+&nbsp;                &quot;SELECT city.Name, country.Name, city.District, city.population &quot;
+&nbsp;                        + &quot;FROM country LEFT JOIN city ON country.Capital = city.ID &quot;
+&nbsp;                        + &quot;WHERE city.Name IS NOT NULL &quot;
+&nbsp;                        + &quot;AND country.Region LIKE &#39;&quot; + region
+&nbsp;                        + &quot;&#39; ORDER BY city.population DESC LIMIT &quot; + limit ;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * prints all cities in the arraylist provided to it
+&nbsp;     *
+&nbsp;     * @param cities An ArrayList of cities
+&nbsp;     */
+&nbsp;    public static void printCapitalCities(ArrayList&lt;City&gt; cities){
+&nbsp;
+<b class="fc">&nbsp;        if (cities == null)</b>
+&nbsp;        {
+<b class="fc">&nbsp;            System.out.println(&quot;No cities&quot;);</b>
+&nbsp;            return;
+&nbsp;        }
+&nbsp;        try {
+&nbsp;            // Print headers
+<b class="fc">&nbsp;            System.out.printf(&quot;%-36s %-46s %-11s%n&quot;, &quot;Name&quot;, &quot;| Country &quot;, &quot;| Population &quot;);</b>
+<b class="fc">&nbsp;            System.out.printf(&quot;%-36s %-46s %-11s%n&quot;, &quot; &quot;, &quot;|&quot;, &quot;|&quot;);</b>
+&nbsp;
+&nbsp;            // Print countries
+<b class="fc">&nbsp;            for (City c : cities) {</b>
+<b class="fc">&nbsp;                System.out.printf(&quot;%-36s %-46s %-11s%n&quot;, c.getName(), &quot;| &quot; + c.getCountry(), &quot;| &quot; + c.getPopulation());</b>
+<b class="fc">&nbsp;            }</b>
+&nbsp;        }
+<b class="fc">&nbsp;        catch (Exception e){</b>
+<b class="fc">&nbsp;            System.out.println(&quot;Could not print any cities&quot;);</b>
+<b class="fc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-14 18:38</div>
+</div>
+</body>
+</html>

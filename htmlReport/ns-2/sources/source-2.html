@@ -1,0 +1,243 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId" lang="">
+<head>
+  <title>Coverage Report > Country</title>
+  <style>
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.napier.sem.businessObjects</a>
+</div>
+
+<h1>Coverage Summary for Class: Country (com.napier.sem.businessObjects)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Country</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/13)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (13/13)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.napier.sem.businessObjects;
+&nbsp;
+&nbsp;/**
+&nbsp; * Class representing a Country*
+&nbsp; * {@code @Authors:}  Michael Mackenzie, Nweke Success
+&nbsp; */
+&nbsp;public class Country
+&nbsp;{
+&nbsp;    /**
+&nbsp;     * Country Code
+&nbsp;     */
+&nbsp;    private String code;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Country Name
+&nbsp;     */
+&nbsp;    private String name;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Continent
+&nbsp;     */
+&nbsp;    private String continent;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Country Region
+&nbsp;     */
+&nbsp;    private String region;
+&nbsp;    /**
+&nbsp;     * Population
+&nbsp;     */
+&nbsp;    private int population;
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Capital
+&nbsp;     */
+&nbsp;    private String capital;
+&nbsp;
+&nbsp;    // Constructors
+&nbsp;    /**
+&nbsp;     * Default Constructor
+&nbsp;     */
+<b class="fc">&nbsp;    public Country() {}</b>
+&nbsp;
+&nbsp;    // Getters and Setters
+&nbsp;    /**
+&nbsp;     * Returns code property
+&nbsp;     */
+&nbsp;    public String getCode() {
+<b class="fc">&nbsp;        return code;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets code property
+&nbsp;     *
+&nbsp;     * @param code the countries code
+&nbsp;     */
+&nbsp;    public void setCode(String code) {
+<b class="fc">&nbsp;        this.code = code;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns name property
+&nbsp;     */
+&nbsp;    public String getName() {
+<b class="fc">&nbsp;        return name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets Name Property
+&nbsp;     *
+&nbsp;     * @param name the name ofd the country
+&nbsp;     */
+&nbsp;    public void setName(String name) {
+<b class="fc">&nbsp;        this.name = name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns continent property
+&nbsp;     */
+&nbsp;    public String getContinent() {
+<b class="fc">&nbsp;        return continent;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets continent property
+&nbsp;     *
+&nbsp;     * @param continent the continent the country is on
+&nbsp;     */
+&nbsp;    public void setContinent(String continent) {
+<b class="fc">&nbsp;        this.continent = continent;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns region property
+&nbsp;     */
+&nbsp;    public String getRegion() {
+<b class="fc">&nbsp;        return region;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets region property
+&nbsp;     *
+&nbsp;     * @param region the region the country is in
+&nbsp;     */
+&nbsp;    public void setRegion(String region) {
+<b class="fc">&nbsp;        this.region = region;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns population property
+&nbsp;     */
+&nbsp;    public int getPopulation() {
+<b class="fc">&nbsp;        return population;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets population property
+&nbsp;     *
+&nbsp;     * @param population the population of the country
+&nbsp;     */
+&nbsp;    public void setPopulation(int population) {
+<b class="fc">&nbsp;        this.population = population;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Returns capital property
+&nbsp;     */
+&nbsp;    public String getCapital() {
+<b class="fc">&nbsp;        return capital;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Sets capital property
+&nbsp;     *
+&nbsp;     * @param capital the capital city of the country
+&nbsp;     */
+&nbsp;    public void setCapital(String capital) {
+<b class="fc">&nbsp;        this.capital = capital;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-14 18:38</div>
+</div>
+</body>
+</html>
