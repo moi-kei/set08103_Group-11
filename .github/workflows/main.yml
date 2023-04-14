@@ -32,7 +32,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Integration Tests and CodeCov
+      - name: Integration Tests
         run: |
           docker build -t database ./db 
           docker run --name world -dp 33060:3306 database
@@ -41,7 +41,7 @@ jobs:
           docker rm world
           docker image rm database
       - name: CodeCov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v2
         with:
           # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           directory: ./target/site/jacoco
