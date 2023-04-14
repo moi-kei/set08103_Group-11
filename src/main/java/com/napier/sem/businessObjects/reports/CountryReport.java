@@ -17,7 +17,7 @@ public class CountryReport {
     /**
      * gets a sql query in the form of a string
      *
-     * @return a query from getting all countries from the db
+     * @return a query for getting all countries from the db
      */
     public static String getCountries() {
         return
@@ -30,7 +30,7 @@ public class CountryReport {
      * builds a sql query in the form of a string
      *
      * @param limit the limit of the number of counties you want listed
-     * @return a query from getting all countries from the db
+     * @return a query for getting a number of countries from the db
      */
     public static String getCountries(int limit) {
         return
@@ -42,8 +42,8 @@ public class CountryReport {
     /**
      * builds SQL query using the continent string passed to it
      *
-     * @return all countries in the supplied continent from the world db in order of population from largest to smallest
      * @param continent the continent the listed countries will be from
+     * @return a query for getting all countries in a continent from the db
      */
     public static String getCountriesContinent(String continent) {
         return
@@ -56,9 +56,9 @@ public class CountryReport {
     /**
      * builds SQL query using the continent string passed to it
      *
-     * @return all countries in the supplied continent from the world db in order of population from largest to smallest
      * @param continent the continent the listed coountries will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of countries in a continent from the db
      */
     public static String getCountriesContinent(String continent, int limit) {
         return
@@ -71,8 +71,8 @@ public class CountryReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all countries in the supplied region from the world db in order of population from largest to smallest
      * @param region the continent the listed countries will be from
+     * @return a query for getting all countries in a region from the db
      */
     public static String getCountriesRegion(String region) {
         return
@@ -85,9 +85,9 @@ public class CountryReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all countries in the supplied region from the world db in order of population from largest to smallest
      * @param region the continent the listed countries will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of countries in a region from the db
      */
     public static String getCountriesRegion(String region, int limit) {
         return
@@ -148,8 +148,9 @@ public class CountryReport {
     /**
      * constructs a country, assigns variables based on sql entry
      * then adds the country to an Arraylist which is returned
-     * @return all countries in the world db in order of population from largest to smallest
+     *
      * @param rset ResultSet returned from the SQL query
+     * @return all countries in the world db in order of population from largest to smallest
      */
     public static ArrayList<Country> buildCountryList(ResultSet rset) {
         try {

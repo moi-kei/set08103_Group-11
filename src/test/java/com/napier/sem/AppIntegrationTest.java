@@ -6,6 +6,9 @@ import com.napier.sem.businessObjects.reports.LanguageReport;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+/**
+ * integration tests for the application
+ */
 public class AppIntegrationTest
 {
     //initialize app

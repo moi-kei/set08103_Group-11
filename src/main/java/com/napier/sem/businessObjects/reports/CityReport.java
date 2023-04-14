@@ -16,7 +16,7 @@ public class CityReport {
     /**
      * builds SQL query to get city details passed to it
      *
-     * @return all cities in the world db in order of population from largest to smallest
+     * @return a query for getting all cities from the db
      */
     public static String getCities() {
         return
@@ -29,7 +29,7 @@ public class CityReport {
      * builds SQL query to get city details passed to it
      *
      * @param limit the number of entries to get from database
-     * @return all cities in the world db in order of population from largest to smallest
+     * @return a query for getting a number of cities from the db
      */
     public static String getCities(int limit) {
         return
@@ -41,8 +41,8 @@ public class CityReport {
     /**
      * builds SQL query using the continent string passed to it
      *
-     * @return all cities in the supplied continent from the world db in order of population from largest to smalles
      * @param continent the continent the listed cities will be from
+     * @return a query for getting all cities in a continent from the db
      */
     public static String getCitiesContinent(String continent) {
         return
@@ -55,9 +55,9 @@ public class CityReport {
     /**
      * builds SQL query using the continent string passed to it
      *
-     * @return all cities in the supplied continent from the world db in order of population from largest to smallest
      * @param continent the continent the listed cities will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of cities in a continent from the db
      */
     public static String getCitiesContinent(String continent, int limit) {
         return
@@ -70,8 +70,8 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param region the region the listed cities will be from
+     * @return a query for getting all cities in a region from the db
      */
     public static String getCitiesRegion(String region) {
         return
@@ -84,9 +84,9 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param region the region the listed cities will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of cities in a region from the db
      */
     public static String getCitiesRegion(String region, int limit) {
         return
@@ -99,8 +99,8 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param country the country the listed cities will be from
+     * @return a query for getting all cities in a country from the db
      */
     public static String getCitiesCountry(String country) {
         return
@@ -113,9 +113,9 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param country the country the listed cities will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of cities in a country from the db
      */
     public static String getCitiesCountry(String country, int limit) {
         return
@@ -128,8 +128,8 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied district from the world db in order of population from largest to smallest
      * @param district the country the listed cities will be from
+     * @return a query for getting all cities in a district from the db
      */
     public static String getCitiesDistrict(String district) {
         return
@@ -142,9 +142,9 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied district from the world db in order of population from largest to smallest
      * @param district the country the listed cities will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of cities in a district from the db
      */
     public static String getCitiesDistrict(String district, int limit) {
         return

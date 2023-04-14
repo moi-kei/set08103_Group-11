@@ -18,7 +18,6 @@ jobs:
           distribution: 'adopt'
       - name: Unit Tests
         run: mvn -Dtest=com.napier.sem.AppTest test
-
   IntegrationTests:
     name: Integration Tests
     runs-on: ubuntu-20.04

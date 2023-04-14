@@ -16,6 +16,7 @@ public class LanguageReport {
 
     /**
      * executes sql query, build list of languages, returns list
+     *
      * @param con the connection to the db
      * @return a list of languages
      */
@@ -56,6 +57,7 @@ public class LanguageReport {
 
     /**
      * prints list of languages
+     *
      * @param languages a list of languages
      */
     public static void printLanguages(List<Language> languages) {

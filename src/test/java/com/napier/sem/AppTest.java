@@ -1,13 +1,16 @@
 package com.napier.sem;
+
 import com.napier.sem.businessObjects.City;
 import com.napier.sem.businessObjects.Country;
 import com.napier.sem.businessObjects.Language;
 import com.napier.sem.businessObjects.Population;
 import com.napier.sem.businessObjects.reports.*;
 import org.junit.jupiter.api.*;
-
 import java.util.ArrayList;
 
+/**
+ * unit tests for the application
+ */
 class AppTest {
     static App app;
 

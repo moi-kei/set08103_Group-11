@@ -1,13 +1,22 @@
 package com.napier.sem.businessObjects.reports;
 
 import com.napier.sem.businessObjects.Population;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * Class acting as a container for static function related to creating Population reports
+ * {@code @Authors:} Michael Mackenzie, Nweke Success
+ */
 public class PopulationReport {
 
+    /**
+     * Builds a sql query for getting the population details of a continent
+     *
+     * @param continent the continent you want the population of
+     * @return a sql query as a string for getting the population details of a continent
+     */
     public static String getContinentPopulation(String continent) {
         return
                 "SELECT SUM(DISTINCT country.Population), SUM(DISTINCT city.Population), SUM(DISTINCT country.Population) - SUM(DISTINCT city.Population) "
@@ -15,6 +24,12 @@ public class PopulationReport {
                         + "WHERE country.Continent LIKE '" + continent + "'";
     }
 
+    /**
+     * Builds a sql query for getting the population details of a region
+     *
+     * @param region the region you want the population of
+     * @return a sql query as a string for getting the population details of a region
+     */
     public static String getRegionPopulation(String region) {
         return
                 "SELECT SUM(DISTINCT country.Population), SUM(DISTINCT city.Population), SUM(DISTINCT country.Population) - SUM(DISTINCT city.Population) "
@@ -22,6 +37,12 @@ public class PopulationReport {
                         + "WHERE country.Region LIKE '" + region + "'";
     }
 
+    /**
+     * Builds a sql query for getting the population details of a country
+     *
+     * @param country the country you want the population of
+     * @return a sql query as a string for getting the population details of a country
+     */
     public static String getCountryPopulation(String country) {
         return
                 "SELECT SUM(DISTINCT country.Population), SUM(DISTINCT city.Population), SUM(DISTINCT country.Population) - SUM(DISTINCT city.Population) "
@@ -29,12 +50,23 @@ public class PopulationReport {
                         + "WHERE country.Name LIKE '" + country + "'";
     }
 
+    /**
+     * Builds a sql query for getting just the population of the world
+     *
+     * @return a sql query as a string for getting the population details of a continent
+     */
     public static String getWorldPop() {
         return
                 "SELECT SUM(DISTINCT country.Population) "
                         + "FROM country";
     }
 
+    /**
+     * Builds a sql query for getting just the population of a continent
+     *
+     * @param continent a string representing the continent you want the population of
+     * @return a sql query as a string for getting the population details of a continent
+     */
     public static String getContinentPop(String continent) {
         return
                 "SELECT SUM(DISTINCT Population) "
@@ -42,6 +74,12 @@ public class PopulationReport {
                         + "WHERE Continent LIKE '" + continent + "'";
     }
 
+    /**
+     * Builds a sql query for getting just the population of a region
+     *
+     * @param region a string representing the region you want the population of
+     * @return a sql query as a string for getting the population details of a region
+     */
     public static String getRegionPop(String region) {
         return
                 "SELECT SUM(DISTINCT Population) "
@@ -49,6 +87,12 @@ public class PopulationReport {
                         + "WHERE Region LIKE '" + region + "'";
     }
 
+    /**
+     * Builds a sql query for getting just the population of a country
+     *
+     * @param country a string representing the country you want the population of
+     * @return a sql query as a string for getting the population details of a country
+     */
     public static String getCountryPop(String country) {
         return
                 "SELECT Population "
@@ -56,6 +100,12 @@ public class PopulationReport {
                         + "WHERE Name LIKE '" + country + "'";
     }
 
+    /**
+     * Builds a sql query for getting just the population of a district
+     *
+     * @param district a string representing the district you want the population of
+     * @return a sql query as a string for getting the population details of a district
+     */
     public static String getDistrictPop(String district) {
         return
                 "SELECT SUM(DISTINCT Population) "
@@ -63,6 +113,12 @@ public class PopulationReport {
                         + "WHERE District LIKE '" + district + "'";
     }
 
+    /**
+     * Builds a sql query for getting just the population of a city
+     *
+     * @param city a string representing the city you want the population of
+     * @return a sql query as a string for getting the population details of a city
+     */
     public static String getCityPop(String city) {
         return
                 "SELECT Population "
@@ -70,6 +126,14 @@ public class PopulationReport {
                         + "WHERE Name LIKE '" + city + "'";
     }
 
+    /**
+     * Executes a query on the db and build a detailed population report
+     *
+     * @param con the connection to the db
+     * @param query the query to be executed
+     * @param location the place you want the population of
+     * @return a detailed Population report
+     */
     public static Population ExecuteQuery(Connection con, String query, String location){
 
         try {
@@ -85,7 +149,7 @@ public class PopulationReport {
             pop.setCityPopulation(rset.getLong(2));
             pop.setOutOfCityPopulation(rset.getLong(3));
 
-                return pop;
+            return pop;
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
@@ -94,6 +158,13 @@ public class PopulationReport {
         }
     }
 
+    /**
+     * Executes a query on the db and returns only the population
+     *
+     * @param con the connection to the db
+     * @param query the query to be executed
+     * @return a string with the total population
+     */
     public static String ExecuteQuery(Connection con, String query){
 
         try {
@@ -112,6 +183,11 @@ public class PopulationReport {
         }
     }
 
+    /**
+     * prints a population report
+     *
+     * @param population the population report you want to be printed
+     */
     public static void printPopulation(Population population){
 
         if (population != null) {
