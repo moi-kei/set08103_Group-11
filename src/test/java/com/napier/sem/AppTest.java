@@ -36,8 +36,7 @@ class AppTest {
      * checks getCountries function with different limits
      */
     @Test
-    void getCountriesTestLimits()
-    {
+    void getCountriesTestLimits() {
         System.out.println(CountryReport.getCountries(1));
         System.out.println(CountryReport.getCountries(0));
         System.out.println(CountryReport.getCountries(-1));
@@ -74,8 +73,7 @@ class AppTest {
      * checks getCountriesContinent function with different limits
      */
     @Test
-    void getCountriesContinentTestLimits()
-    {
+    void getCountriesContinentTestLimits() {
         System.out.println(CountryReport.getCountriesContinent("Test", 1));
         System.out.println(CountryReport.getCountriesContinent("Test", 0));
         System.out.println(CountryReport.getCountriesContinent("Test", -1));
@@ -112,8 +110,7 @@ class AppTest {
      * checks getCountriesRegion function with different limits
      */
     @Test
-    void getCountriesRegionTestLimits()
-    {
+    void getCountriesRegionTestLimits() {
         System.out.println(CountryReport.getCountriesRegion("Test", 1));
         System.out.println(CountryReport.getCountriesRegion("Test", 0));
         System.out.println(CountryReport.getCountriesRegion("Test", -1));
@@ -132,8 +129,7 @@ class AppTest {
      * checks that the app doesn't fail when the list is empty
      */
     @Test
-    void printCountriesTestEmpty()
-    {
+    void printCountriesTestEmpty() {
         ArrayList<Country> countries = new ArrayList<>();
         CountryReport.printCountries(countries);
     }
@@ -142,8 +138,7 @@ class AppTest {
      * checks that the app doesn't fail when the list contains null
      */
     @Test
-    void printCountriesTestContainsNull()
-    {
+    void printCountriesTestContainsNull() {
         ArrayList<Country> countries = new ArrayList<>();
         countries.add(null);
         CountryReport.printCountries(countries);
@@ -155,8 +150,7 @@ class AppTest {
      * checks that the app functions with a normal entry
      */
     @Test
-    void printCountriesTest()
-    {
+    void printCountriesTest() {
         ArrayList<Country> countries = new ArrayList<>();
         Country c = new Country();
         c.setName("Scotland");
@@ -173,8 +167,7 @@ class AppTest {
      * checks that the app functions with a normal entry
      */
     @Test
-    void printCountriesTest2()
-    {
+    void printCountriesTest2() {
         ArrayList<Country> countries = new ArrayList<>();
         Country c = new Country();
         c.setName("Scotland");
@@ -203,8 +196,7 @@ class AppTest {
      * checks getCities function with different limits
      */
     @Test
-    void getCitiesTestLimits()
-    {
+    void getCitiesTestLimits() {
         System.out.println(CityReport.getCities(1));
         System.out.println(CityReport.getCities(0));
         System.out.println(CityReport.getCities(-1));
@@ -241,8 +233,7 @@ class AppTest {
      * checks getCitiesContinent function with different limits
      */
     @Test
-    void getCitiesContinentTestLimits()
-    {
+    void getCitiesContinentTestLimits() {
         System.out.println(CityReport.getCitiesContinent("Test", 1));
         System.out.println(CityReport.getCitiesContinent("Test", 0));
         System.out.println(CityReport.getCitiesContinent("Test", -1));
@@ -279,8 +270,7 @@ class AppTest {
      * checks getCitiesRegion function with different limits
      */
     @Test
-    void getCitiesRegionTestLimits()
-    {
+    void getCitiesRegionTestLimits() {
         System.out.println(CityReport.getCitiesRegion("Test", 1));
         System.out.println(CityReport.getCitiesRegion("Test", 0));
         System.out.println(CityReport.getCitiesRegion("Test", -1));
@@ -317,8 +307,7 @@ class AppTest {
      * checks getCitiesCountry function with different limits
      */
     @Test
-    void getCitiesCountryTestLimits()
-    {
+    void getCitiesCountryTestLimits() {
         System.out.println(CityReport.getCitiesCountry("Test", 1));
         System.out.println(CityReport.getCitiesCountry("Test", 0));
         System.out.println(CityReport.getCitiesCountry("Test", -1));
@@ -355,8 +344,7 @@ class AppTest {
      * checks getCitiesDistrict function with different limits
      */
     @Test
-    void getCitiesDistrictTestLimits()
-    {
+    void getCitiesDistrictTestLimits() {
         System.out.println(CityReport.getCitiesDistrict("Test", 1));
         System.out.println(CityReport.getCitiesDistrict("Test", 0));
         System.out.println(CityReport.getCitiesDistrict("Test", -1));
@@ -375,8 +363,7 @@ class AppTest {
      * checks that the app doesn't fail when the list is empty
      */
     @Test
-    void printCitiesTestEmpty()
-    {
+    void printCitiesTestEmpty() {
         ArrayList<City> cities = new ArrayList<>();
         CityReport.printCities(cities);
     }
@@ -385,8 +372,7 @@ class AppTest {
      * checks that the app doesn't fail when the list contains null
      */
     @Test
-    void printCitiesTestContainsNull()
-    {
+    void printCitiesTestContainsNull() {
         ArrayList<City> cities = new ArrayList<>();
         cities.add(null);
         CityReport.printCities(cities);
@@ -396,8 +382,7 @@ class AppTest {
      * checks that the app functions with a normal entry
      */
     @Test
-    void printCitiesTest()
-    {
+    void printCitiesTest() {
         ArrayList<City> cities = new ArrayList<>();
         City c = new City();
         c.setCountry("Scotland");
@@ -424,8 +409,7 @@ class AppTest {
      * checks getCapitalCities function with different limits
      */
     @Test
-    void getCapitalCitiesTestLimits()
-    {
+    void getCapitalCitiesTestLimits() {
         System.out.println(CapitalCityReport.getCapitalCities(1));
         System.out.println(CapitalCityReport.getCapitalCities(0));
         System.out.println(CapitalCityReport.getCapitalCities(-1));
@@ -462,8 +446,7 @@ class AppTest {
      * checks getCapitalCitiesContinent function with different limits
      */
     @Test
-    void getCapitalCitiesContinentTestLimits()
-    {
+    void getCapitalCitiesContinentTestLimits() {
         System.out.println(CapitalCityReport.getCapitalCitiesContinent("Test", 1));
         System.out.println(CapitalCityReport.getCapitalCitiesContinent("Test", 0));
         System.out.println(CapitalCityReport.getCapitalCitiesContinent("Test", -1));
@@ -500,8 +483,7 @@ class AppTest {
      * checks getCitiesRegion function with different limits
      */
     @Test
-    void getCapitalCitiesRegionTestLimits()
-    {
+    void getCapitalCitiesRegionTestLimits() {
         System.out.println(CapitalCityReport.getCapitalCitiesRegion("Test", 1));
         System.out.println(CapitalCityReport.getCapitalCitiesRegion("Test", 0));
         System.out.println(CapitalCityReport.getCapitalCitiesRegion("Test", -1));
@@ -520,8 +502,7 @@ class AppTest {
      * checks that the app doesn't fail when the list is empty
      */
     @Test
-    void printCapitalCitiesTestEmpty()
-    {
+    void printCapitalCitiesTestEmpty() {
         ArrayList<City> cities = new ArrayList<>();
         CapitalCityReport.printCapitalCities(cities);
     }
@@ -530,8 +511,7 @@ class AppTest {
      * checks that the app doesn't fail when the list contains null
      */
     @Test
-    void printCapitalCitiesTestContainsNull()
-    {
+    void printCapitalCitiesTestContainsNull() {
         ArrayList<City> cities = new ArrayList<>();
         cities.add(null);
         CapitalCityReport.printCapitalCities(cities);
@@ -541,8 +521,7 @@ class AppTest {
      * checks that the app functions with a normal entry
      */
     @Test
-    void printCapitalCitiesTest()
-    {
+    void printCapitalCitiesTest() {
         ArrayList<City> cities = new ArrayList<>();
         City c = new City();
         c.setCountry("Scotland");
@@ -569,8 +548,7 @@ class AppTest {
      * checks that the app doesn't fail when the list is empty
      */
     @Test
-    void printLanguagesTestEmpty()
-    {
+    void printLanguagesTestEmpty() {
         ArrayList<Language> languages = new ArrayList<>();
         LanguageReport.printLanguages(languages);
     }
@@ -579,8 +557,7 @@ class AppTest {
      * checks that the app doesn't fail when the list contains null
      */
     @Test
-    void printLanguagesTestContainsNull()
-    {
+    void printLanguagesTestContainsNull() {
         ArrayList<Language> languages = new ArrayList<>();
         languages.add(null);
         LanguageReport.printLanguages(languages);
@@ -590,8 +567,7 @@ class AppTest {
      * checks that the app functions with a normal entry
      */
     @Test
-    void printLanguagesTest()
-    {
+    void printLanguagesTest() {
         ArrayList<Language> languages = new ArrayList<>();
         Language l = new Language();
         l.setName("Language");
@@ -842,8 +818,7 @@ class AppTest {
      * checks that the app doesn't fail when the population is empty
      */
     @Test
-    void printPopulationTestEmpty()
-    {
+    void printPopulationTestEmpty() {
         Population population = new Population();
         PopulationReport.printPopulation(population);
     }
@@ -852,8 +827,7 @@ class AppTest {
      * checks that the app doesn't fail when the population contains null
      */
     @Test
-    void printPopulationTestContainsNull()
-    {
+    void printPopulationTestContainsNull() {
         Population population = new Population();
         population.setName(null);
         population.setCityPopulation(1L);
@@ -866,8 +840,7 @@ class AppTest {
      * checks that the app functions with a normal entry
      */
     @Test
-    void printPopulationTest()
-    {
+    void printPopulationTest() {
         Population population = new Population();
         population.setName("Test");
         population.setCityPopulation(1L);

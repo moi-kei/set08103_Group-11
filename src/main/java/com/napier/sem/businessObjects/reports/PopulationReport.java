@@ -83,21 +83,19 @@ public class PopulationReport {
 
         try
         {
-            {
-                // Create an SQL statement
-                Statement stmt = con.createStatement();
-                //get ResultSet
-                ResultSet rset = stmt.executeQuery(query);
-                //return population
-                rset.next();
-                Population pop = new Population();
-                pop.setName(location);
-                pop.setPopulation(rset.getLong(1));
-                pop.setCityPopulation(rset.getLong(2));
-                pop.setOutOfCityPopulation(rset.getLong(3));
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            //get ResultSet
+            ResultSet rset = stmt.executeQuery(query);
+            //return population
+            rset.next();
+            Population pop = new Population();
+            pop.setName(location);
+            pop.setPopulation(rset.getLong(1));
+            pop.setCityPopulation(rset.getLong(2));
+            pop.setOutOfCityPopulation(rset.getLong(3));
 
                 return pop;
-            }
         }
         catch (Exception e)
         {
@@ -111,15 +109,13 @@ public class PopulationReport {
 
         try
         {
-            {
-                // Create an SQL statement
-                Statement stmt = con.createStatement();
-                //get ResultSet
-                ResultSet rset = stmt.executeQuery(query);
-                //return population
-                rset.next();
-                return rset.getString(1);
-            }
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            //get ResultSet
+            ResultSet rset = stmt.executeQuery(query);
+            //return population
+            rset.next();
+            return rset.getString(1);
         }
         catch (Exception e)
         {
