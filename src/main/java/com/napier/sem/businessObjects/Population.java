@@ -2,7 +2,6 @@ package com.napier.sem.businessObjects;
 
 /**
  * Class representing a population
-
  * {@code @Authors:}  Michael Mackenzie, Nweke Success
  */
 public class Population {

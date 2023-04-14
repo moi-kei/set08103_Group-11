@@ -64,9 +64,11 @@ public class App
         }
 
         if (con != null) {
+
         /*
           Country reports
-         */
+        */
+
             //Report 1
             // Print all countries in the world db
             System.out.println("All the countries in the world from largest population to smallest. \r\n");
@@ -113,7 +115,8 @@ public class App
 
         /*
           City reports
-         */
+        */
+
             //Report 7
             //print all cities in the world db in order of population
             System.out.println("All the cities in the world from largest population to smallest. \r\n");
@@ -189,7 +192,8 @@ public class App
 
         /*
         Capital City reports
-         */
+        */
+
             //Report 17
             //print all cities in the world db in order of population
             System.out.println("All the capital cities in the world from largest population to smallest. \r\n");
@@ -232,6 +236,10 @@ public class App
             System.out.println("The top " + limit + " capital cities in " + region + " from largest population to smallest. \r\n");
             CapitalCityReport.printCapitalCities(CityReport.ExecuteQuery(con, CapitalCityReport.getCapitalCitiesRegion(region, limit)));
             System.out.println("\r\n \r\n");
+
+        /*
+        Population reports
+        */
 
             //Report 23
             continent = "Europe";
@@ -279,6 +287,10 @@ public class App
             String city = "Edinburgh";
             System.out.println("The population of " + city + " is: " + PopulationReport.ExecuteQuery(con, PopulationReport.getCityPop(city)));
             System.out.println("\r\n \r\n");
+
+        /*
+        Language reports
+        */
 
             //report 32
             LanguageReport.printLanguages(LanguageReport.getLanguages(con));
