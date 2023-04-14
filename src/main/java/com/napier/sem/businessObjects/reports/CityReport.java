@@ -8,17 +8,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * Class acting as a container for static function related to creating city reports*
+ * Class acting as a container for static function related to creating city reports
  * {@code @Authors:} Michael Mackenzie, Nweke Success
  */
 public class CityReport {
 
     /**
      * builds SQL query to get city details passed to it
-     * @return all cities in the world db in order of population from largest to smallest
+     *
+     * @return a query for getting all cities from the db
      */
-    public static String getCities()
-    {
+    public static String getCities() {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -29,10 +29,9 @@ public class CityReport {
      * builds SQL query to get city details passed to it
      *
      * @param limit the number of entries to get from database
-     * @return all cities in the world db in order of population from largest to smallest
+     * @return a query for getting a number of cities from the db
      */
-    public static String getCities(int limit)
-    {
+    public static String getCities(int limit) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -42,11 +41,10 @@ public class CityReport {
     /**
      * builds SQL query using the continent string passed to it
      *
-     * @return all cities in the supplied continent from the world db in order of population from largest to smalles
      * @param continent the continent the listed cities will be from
+     * @return a query for getting all cities in a continent from the db
      */
-    public static String getCitiesContinent(String continent)
-    {
+    public static String getCitiesContinent(String continent) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -57,12 +55,11 @@ public class CityReport {
     /**
      * builds SQL query using the continent string passed to it
      *
-     * @return all cities in the supplied continent from the world db in order of population from largest to smallest
      * @param continent the continent the listed cities will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of cities in a continent from the db
      */
-    public static String getCitiesContinent(String continent, int limit)
-    {
+    public static String getCitiesContinent(String continent, int limit) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -73,11 +70,10 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param region the region the listed cities will be from
+     * @return a query for getting all cities in a region from the db
      */
-    public static String getCitiesRegion(String region)
-    {
+    public static String getCitiesRegion(String region) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -88,12 +84,11 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param region the region the listed cities will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of cities in a region from the db
      */
-    public static String getCitiesRegion(String region, int limit)
-    {
+    public static String getCitiesRegion(String region, int limit) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -104,11 +99,10 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param country the country the listed cities will be from
+     * @return a query for getting all cities in a country from the db
      */
-    public static String getCitiesCountry(String country)
-    {
+    public static String getCitiesCountry(String country) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -119,12 +113,11 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied region from the world db in order of population from largest to smallest
      * @param country the country the listed cities will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of cities in a country from the db
      */
-    public static String getCitiesCountry(String country, int limit)
-    {
+    public static String getCitiesCountry(String country, int limit) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -135,11 +128,10 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied district from the world db in order of population from largest to smallest
      * @param district the country the listed cities will be from
+     * @return a query for getting all cities in a district from the db
      */
-    public static String getCitiesDistrict(String district)
-    {
+    public static String getCitiesDistrict(String district) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -150,12 +142,11 @@ public class CityReport {
     /**
      * builds SQL query using the region string passed to it
      *
-     * @return all cities in the supplied district from the world db in order of population from largest to smallest
      * @param district the country the listed cities will be from
      * @param limit the number of entries to get from database
+     * @return a query for getting a number of cities in a district from the db
      */
-    public static String getCitiesDistrict(String district, int limit)
-    {
+    public static String getCitiesDistrict(String district, int limit) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM city LEFT JOIN country ON city.CountryCode = country.Code "
@@ -163,21 +154,24 @@ public class CityReport {
                         + "' ORDER BY city.population DESC LIMIT " + limit;
     }
 
+    /**
+     * Executes a sql query, builds a list of cities from the result set and returns that list
+     *
+     * @param con the connection to the db
+     * @param query the query to be executed
+     * @return a List of cities
+     */
     public static ArrayList<City> ExecuteQuery(Connection con, String query){
 
-        try
-        {
-            {
-                // Create an SQL statement
-                Statement stmt = con.createStatement();
-                //get ResultSet
-                ResultSet rset = stmt.executeQuery(query);
-                //pass to buildCityList to construct ArrayList of cities
-                return buildCityList(rset);
-            }
+        try {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            //get ResultSet
+            ResultSet rset = stmt.executeQuery(query);
+            //pass to buildCityList to construct ArrayList of cities
+            return buildCityList(rset);
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
             return null;
@@ -191,28 +185,22 @@ public class CityReport {
      * @return all cities in the world db in order of population from largest to smallest
      * @param rset ResultSet returned from the SQL query
      */
-    public static ArrayList<City> buildCityList(ResultSet rset)
-    {
-        try
-        {
-            {
-                // Create arrayList for cities
-                ArrayList<City> cities = new ArrayList<>();
-                // Create new country and assign variables
-                while (rset.next())
-                {
-                    City c = new City();
-                    c.setName(rset.getString("city.Name"));
-                    c.setCountry(rset.getString("country.name"));
-                    c.setDistrict(rset.getString("city.District"));
-                    c.setPopulation(rset.getInt("city.Population"));
-                    cities.add(c);
-                }
-                return cities;
+    public static ArrayList<City> buildCityList(ResultSet rset) {
+        try {
+            // Create arrayList for cities
+            ArrayList<City> cities = new ArrayList<>();
+            // Create new country and assign variables
+            while (rset.next()) {
+                City c = new City();
+                c.setName(rset.getString("city.Name"));
+                c.setCountry(rset.getString("country.name"));
+                c.setDistrict(rset.getString("city.District"));
+                c.setPopulation(rset.getInt("city.Population"));
+                cities.add(c);
             }
+            return cities;
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
             return null;
@@ -226,13 +214,11 @@ public class CityReport {
      */
     public static void printCities(ArrayList<City> cities){
 
-        if (cities == null)
-        {
+        if (cities == null) {
             System.out.println("No cities");
             return;
         }
         try {
-            // Print headers
             System.out.printf("%-36s %-46s %-22s %-11s%n", "Name", "| Country ", "| District ", "| Population ");
             System.out.printf("%-36s %-46s %-22s %-11s%n", " ", "|", "|" , "|");
 

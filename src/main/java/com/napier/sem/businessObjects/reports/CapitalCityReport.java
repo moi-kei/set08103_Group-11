@@ -3,11 +3,16 @@ package com.napier.sem.businessObjects.reports;
 import com.napier.sem.businessObjects.City;
 import java.util.ArrayList;
 
+/**
+ * Class acting as a container for static function related to creating capital city reports
+ * {@code @Authors:} Michael Mackenzie, Nweke Success
+ */
 public class CapitalCityReport {
 
     /**
      * builds SQL query to get city details passed to it
-     * @return all capital cities in the world db in order of population from largest to smallest
+     *
+     * @return a query for getting all capital cities from the db
      */
     public static String getCapitalCities()
     {
@@ -20,8 +25,9 @@ public class CapitalCityReport {
 
     /**
      * builds SQL query to get city details passed to it
-     * @return all capital cities in the world db in order of population from largest to smallest
+     *
      * @param limit the limit of the number of counties you want listed
+     * @return a query for getting a number of capital cities from the db
      */
     public static String getCapitalCities(int limit)
     {
@@ -34,8 +40,9 @@ public class CapitalCityReport {
 
     /**
      * builds SQL query to get city details passed to it
-     * @return all capital cities in the world db in order of population from largest to smallest
+     *
      * @param continent the continent the listed countries will be from
+     * @return a query for getting all capital cities in a continent from the db
      */
     public static String getCapitalCitiesContinent(String continent)
     {
@@ -49,9 +56,10 @@ public class CapitalCityReport {
 
     /**
      * builds SQL query to get city details passed to it
-     * @return all capital cities in the world db in order of population from largest to smallest
+     *
      * @param continent the continent the listed countries will be from
      * @param limit the limit of the number of counties you want listed
+     * @return a query for getting a number of capital cities in a continent from the db
      */
     public static String getCapitalCitiesContinent(String continent, int limit)
     {
@@ -65,8 +73,9 @@ public class CapitalCityReport {
 
     /**
      * builds SQL query to get city details passed to it
-     * @return all capital cities in the world db in order of population from largest to smallest
+     *
      * @param region the region the listed countries will be from
+     * @return a query for getting all capital cities in a region from the db
      */
     public static String getCapitalCitiesRegion(String region)
     {
@@ -80,9 +89,10 @@ public class CapitalCityReport {
 
     /**
      * builds SQL query to get city details passed to it
-     * @return all capital cities in the world db in order of population from largest to smallest
+     *
      * @param region the region the listed countries will be from
      * @param limit the limit of the number of counties you want listed
+     * @return a query for getting a number of capital cities in a region from the db
      */
     public static String getCapitalCitiesRegion(String region, int limit)
     {

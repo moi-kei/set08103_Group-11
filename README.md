@@ -4,9 +4,9 @@
 
 Main Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=main)
 
-Develop Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=develop)
+Release Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=release)
 
-Feature Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=feature)
+Develop Branch![Github Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/moi-kei/set08103_Group-11/main.yml?branch=develop)
 
 [![Releases](https://img.shields.io/github/release/moi-kei/set08103_Group-11/all.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/releases)
 
