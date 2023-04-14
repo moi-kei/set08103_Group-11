@@ -191,14 +191,10 @@ public class PopulationReport {
     public static void printPopulation(Population population){
 
         if (population != null) {
-            try {
-                System.out.println("Total population of " + population.getName() + ": " + population.getPopulation());
-                System.out.println("Total population in cities of " + population.getName() + ": " + population.getCityPopulation());
-                System.out.println("Total population not in cities of " + population.getName() + ": " + population.getOutOfCityPopulation());
-            }
-            catch (Exception e) {
-                System.out.println("Couldn't print population");
-            }
+
+            System.out.println("Total population of " + population.getName() + ": " + population.getPopulation());
+            System.out.println("Total population in cities of " + population.getName() + ": " + population.getCityPopulation());
+            System.out.println("Total population not in cities of " + population.getName() + ": " + population.getOutOfCityPopulation());
         }
         else {
 
