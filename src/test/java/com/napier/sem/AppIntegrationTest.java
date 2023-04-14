@@ -155,4 +155,10 @@ public class AppIntegrationTest
     void getLanguagesTest(){
         LanguageReport.printLanguages(LanguageReport.getLanguages(App.con));
     }
+
+    /*
+    PopulationReport integration tests
+     */
+
 }
+
