@@ -1,5 +1,8 @@
 name: set08103 group project
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
 
