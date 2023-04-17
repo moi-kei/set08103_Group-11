@@ -1,6 +1,7 @@
 package com.napier.sem.businessObjects.reports;
 
 import com.napier.sem.businessObjects.Country;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -36,7 +37,7 @@ public class CountryReport {
         return
                 "SELECT country.Code, country.Name, country.Continent, country.Region, country.Population, city.Name "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
-                        + "ORDER BY country.population DESC LIMIT " + limit ;
+                        + "ORDER BY country.population DESC LIMIT " + limit;
     }
 
     /**
@@ -57,7 +58,7 @@ public class CountryReport {
      * builds SQL query using the continent string passed to it
      *
      * @param continent the continent the listed coountries will be from
-     * @param limit the number of entries to get from database
+     * @param limit     the number of entries to get from database
      * @return a query for getting a number of countries in a continent from the db
      */
     public static String getCountriesContinent(String continent, int limit) {
@@ -86,7 +87,7 @@ public class CountryReport {
      * builds SQL query using the region string passed to it
      *
      * @param region the continent the listed countries will be from
-     * @param limit the number of entries to get from database
+     * @param limit  the number of entries to get from database
      * @return a query for getting a number of countries in a region from the db
      */
     public static String getCountriesRegion(String region, int limit) {
@@ -103,30 +104,29 @@ public class CountryReport {
      *
      * @param countries An ArrayList of countries
      */
-    public static void printCountries(ArrayList<Country> countries){
+    public static void printCountries(ArrayList<Country> countries) {
 
         if (countries == null) {
             System.out.println("No countries");
             return;
         }
-        try {
-            // Print headers
-            System.out.printf(header1);
-            System.out.printf(header2);
-            // Print countries
-            for (Country c : countries) {
+        // Print headers
+        System.out.printf(header1);
+        System.out.printf(header2);
+        // Print countries
+        for (Country c : countries) {
+            if (c != null) {
                 System.out.printf("%-4s %-46s %-15s %-30s %-15s %-9s%n", c.getCode(), "| " + c.getName(), "| " + c.getContinent(), "| " + c.getRegion(), "| " + c.getPopulation(), "| " + c.getCapital());
+            } else {
+                System.out.println("couldn't print country details");
             }
-        }
-        catch (Exception e){
-            System.out.println("Could not print any countries");
         }
     }
 
     /**
      * Executes a query on the database, builds a list of countries and returns that list
      *
-     * @param con the connection to the database
+     * @param con   the connection to the database
      * @param query query being executed
      * @return List of countries
      */
@@ -137,8 +137,7 @@ public class CountryReport {
             //Execute SQL statement
             ResultSet rset = stmt.executeQuery(query);
             return buildCountryList(rset);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
             return null;
@@ -168,10 +167,9 @@ public class CountryReport {
                 countries.add(c);
             }
             return countries;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
+            System.out.println("Failed to get country details");
             return null;
         }
     }

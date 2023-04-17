@@ -47,8 +47,7 @@ public class LanguageReport {
                 languages.add(language);
             }
             return languages;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get language details");
             return null;
@@ -61,17 +60,15 @@ public class LanguageReport {
      * @param languages a list of languages
      */
     public static void printLanguages(List<Language> languages) {
-        if(languages != null && !languages.isEmpty()) {
+        if (languages != null && !languages.isEmpty()) {
             for (Language l : languages) {
                 if (l != null) {
                     System.out.println("Language :" + l.getName() + "\nNumber of speakers: " + l.getPopulation() + "\nPercentage of world population: " + l.getPercentage() + "%\n");
-                }
-                else {
+                } else {
                     System.out.println("Can't print language");
                 }
             }
-        }
-        else {
+        } else {
             System.out.println("Can't print language report");
         }
     }

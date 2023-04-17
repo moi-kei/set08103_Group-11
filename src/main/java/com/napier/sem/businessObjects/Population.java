@@ -29,49 +29,73 @@ public class Population {
 
     /**
      * gets the name of the population
+     *
      * @return the name of the population grouping
      */
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
     /**
      * sets the name of the population
+     *
      * @param name the name for the poopulation
      */
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     /**
      * gets the total population
+     *
      * @return the total population
      */
-    public long getPopulation() { return population; }
+    public long getPopulation() {
+        return population;
+    }
 
     /**
      * sets the total population
+     *
      * @param population the total population
      */
-    public void setPopulation(long population) { this.population = population; }
+    public void setPopulation(long population) {
+        this.population = population;
+    }
 
     /**
      * gets the number living in cities
+     *
      * @return the population living in cities
      */
-    public long getCityPopulation() {return cityPopulation;}
+    public long getCityPopulation() {
+        return cityPopulation;
+    }
 
     /**
      * sets the cityPopulation
+     *
      * @param cityPopulation the population living inside cities
      */
-    public void setCityPopulation(long cityPopulation) {this.cityPopulation = cityPopulation;}
+    public void setCityPopulation(long cityPopulation) {
+        this.cityPopulation = cityPopulation;
+    }
 
     /**
      * gets the outOfCityPopulation
+     *
      * @return the number of people not living in cities
      */
-    public long getOutOfCityPopulation() { return outOfCityPopulation; }
+    public long getOutOfCityPopulation() {
+        return outOfCityPopulation;
+    }
 
     /**
      * sets the outOfCityPopulation
+     *
      * @param outOfCityPopulation the number of people not living in cities
      */
-    public void setOutOfCityPopulation(long outOfCityPopulation) { this.outOfCityPopulation = outOfCityPopulation; }
+    public void setOutOfCityPopulation(long outOfCityPopulation) {
+        this.outOfCityPopulation = outOfCityPopulation;
+    }
 }

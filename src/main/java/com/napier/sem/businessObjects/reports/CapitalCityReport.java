@@ -1,6 +1,7 @@
 package com.napier.sem.businessObjects.reports;
 
 import com.napier.sem.businessObjects.City;
+
 import java.util.ArrayList;
 
 /**
@@ -14,8 +15,7 @@ public class CapitalCityReport {
      *
      * @return a query for getting all capital cities from the db
      */
-    public static String getCapitalCities()
-    {
+    public static String getCapitalCities() {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
@@ -29,13 +29,12 @@ public class CapitalCityReport {
      * @param limit the limit of the number of counties you want listed
      * @return a query for getting a number of capital cities from the db
      */
-    public static String getCapitalCities(int limit)
-    {
+    public static String getCapitalCities(int limit) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
                         + "WHERE city.Name IS NOT NULL "
-                        + "ORDER BY city.population DESC LIMIT " + limit ;
+                        + "ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
@@ -44,8 +43,7 @@ public class CapitalCityReport {
      * @param continent the continent the listed countries will be from
      * @return a query for getting all capital cities in a continent from the db
      */
-    public static String getCapitalCitiesContinent(String continent)
-    {
+    public static String getCapitalCitiesContinent(String continent) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
@@ -58,17 +56,16 @@ public class CapitalCityReport {
      * builds SQL query to get city details passed to it
      *
      * @param continent the continent the listed countries will be from
-     * @param limit the limit of the number of counties you want listed
+     * @param limit     the limit of the number of counties you want listed
      * @return a query for getting a number of capital cities in a continent from the db
      */
-    public static String getCapitalCitiesContinent(String continent, int limit)
-    {
+    public static String getCapitalCitiesContinent(String continent, int limit) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
                         + "WHERE city.Name IS NOT NULL "
                         + "AND country.Continent LIKE '" + continent
-                        + "' ORDER BY city.population DESC LIMIT " + limit ;
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
@@ -77,8 +74,7 @@ public class CapitalCityReport {
      * @param region the region the listed countries will be from
      * @return a query for getting all capital cities in a region from the db
      */
-    public static String getCapitalCitiesRegion(String region)
-    {
+    public static String getCapitalCitiesRegion(String region) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
@@ -91,17 +87,16 @@ public class CapitalCityReport {
      * builds SQL query to get city details passed to it
      *
      * @param region the region the listed countries will be from
-     * @param limit the limit of the number of counties you want listed
+     * @param limit  the limit of the number of counties you want listed
      * @return a query for getting a number of capital cities in a region from the db
      */
-    public static String getCapitalCitiesRegion(String region, int limit)
-    {
+    public static String getCapitalCitiesRegion(String region, int limit) {
         return
                 "SELECT city.Name, country.Name, city.District, city.population "
                         + "FROM country LEFT JOIN city ON country.Capital = city.ID "
                         + "WHERE city.Name IS NOT NULL "
                         + "AND country.Region LIKE '" + region
-                        + "' ORDER BY city.population DESC LIMIT " + limit ;
+                        + "' ORDER BY city.population DESC LIMIT " + limit;
     }
 
     /**
@@ -109,25 +104,23 @@ public class CapitalCityReport {
      *
      * @param cities An ArrayList of cities
      */
-    public static void printCapitalCities(ArrayList<City> cities){
+    public static void printCapitalCities(ArrayList<City> cities) {
 
-        if (cities == null)
-        {
+        if (cities == null) {
             System.out.println("No cities");
             return;
         }
-        try {
-            // Print headers
-            System.out.printf("%-36s %-46s %-11s%n", "Name", "| Country ", "| Population ");
-            System.out.printf("%-36s %-46s %-11s%n", " ", "|", "|");
+        // Print headers
+        System.out.printf("%-36s %-46s %-11s%n", "Name", "| Country ", "| Population ");
+        System.out.printf("%-36s %-46s %-11s%n", " ", "|", "|");
 
-            // Print countries
-            for (City c : cities) {
+        // Print countries
+        for (City c : cities) {
+            if (c != null) {
                 System.out.printf("%-36s %-46s %-11s%n", c.getName(), "| " + c.getCountry(), "| " + c.getPopulation());
+            } else {
+                System.out.println("Couldn't print capital city details");
             }
-        }
-        catch (Exception e){
-            System.out.println("Could not print any cities");
         }
     }
 }
