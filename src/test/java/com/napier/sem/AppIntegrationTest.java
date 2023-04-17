@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 /**
  * integration tests for the application
  */
-public class AppIntegrationTest
-{
+public class AppIntegrationTest {
     //initialize app
     static App app;
 
@@ -25,11 +24,12 @@ public class AppIntegrationTest
     /*
     App integration tests
      */
+
     /**
      * Tests the main function with no arguments
      */
     @Test
-    void mainTestEmpty(){
+    void mainTestEmpty() {
 
         String[] connection = {};
         App.main(connection);
@@ -39,7 +39,7 @@ public class AppIntegrationTest
      * Tests the main function with working arguments
      */
     @Test
-    void mainTestArgs(){
+    void mainTestArgs() {
 
         String[] connection = {"localhost:33060", "30000"};
         App.main(connection);
@@ -49,7 +49,7 @@ public class AppIntegrationTest
      * Tests the main function with wrong arguments
      */
     @Test
-    void mainTestFail(){
+    void mainTestFail() {
 
         String[] connection = {"Failure", "1"};
         App.main(connection);
@@ -58,11 +58,12 @@ public class AppIntegrationTest
     /*
     CountryReport Integration tests
      */
+
     /**
      * checks ExecuteQuery works when null is passed
      */
     @Test
-    void ExecuteCountryQueryNullTest(){
+    void ExecuteCountryQueryNullTest() {
         CountryReport.printCountries(CountryReport.ExecuteQuery(null, null));
     }
 
@@ -70,7 +71,7 @@ public class AppIntegrationTest
      * checks ExecuteQuery works when null is passed with a valid connection
      */
     @Test
-    void ExecuteCountryQueryNullQueryTest(){
+    void ExecuteCountryQueryNullQueryTest() {
         CountryReport.printCountries(CountryReport.ExecuteQuery(App.con, null));
     }
 
@@ -78,15 +79,15 @@ public class AppIntegrationTest
      * checks ExecuteQuery works when null is passed to the connection with a valid query
      */
     @Test
-    void ExecuteCountryQueryNullConTest(){
-        CountryReport.printCountries(CountryReport.ExecuteQuery(null, CountryReport.getCountries(5) ));
+    void ExecuteCountryQueryNullConTest() {
+        CountryReport.printCountries(CountryReport.ExecuteQuery(null, CountryReport.getCountries(5)));
     }
 
     /**
      * testing ExecuteQuery
      */
     @Test
-    void ExecuteCountryQueryTest(){
+    void ExecuteCountryQueryTest() {
         CountryReport.printCountries(CountryReport.ExecuteQuery(App.con, CountryReport.getCountries(5)));
     }
 
@@ -94,18 +95,19 @@ public class AppIntegrationTest
      * testing buildCountryList with null
      */
     @Test
-    void buildCountryListNullTest(){
+    void buildCountryListNullTest() {
         CountryReport.printCountries(CountryReport.buildCountryList(null));
     }
 
     /*
     CityReport integration tests
      */
+
     /**
      * checks ExecuteQuery works when null is passed
      */
     @Test
-    void ExecuteCityQueryNullTest(){
+    void ExecuteCityQueryNullTest() {
         CityReport.printCities(CityReport.ExecuteQuery(null, null));
     }
 
@@ -113,7 +115,7 @@ public class AppIntegrationTest
      * checks ExecuteQuery works when null is passed with a valid connection
      */
     @Test
-    void ExecuteCityQueryNullQueryTest(){
+    void ExecuteCityQueryNullQueryTest() {
         CityReport.printCities(CityReport.ExecuteQuery(App.con, null));
     }
 
@@ -121,7 +123,7 @@ public class AppIntegrationTest
      * checks ExecuteQuery works when null is passed to the connection with a valid query
      */
     @Test
-    void ExecuteCityQueryNullConTest(){
+    void ExecuteCityQueryNullConTest() {
         CityReport.printCities(CityReport.ExecuteQuery(null, CityReport.getCities(5)));
     }
 
@@ -129,7 +131,7 @@ public class AppIntegrationTest
      * testing ExecuteQuery
      */
     @Test
-    void ExecuteCityQueryTest(){
+    void ExecuteCityQueryTest() {
         CityReport.printCities(CityReport.ExecuteQuery(App.con, CityReport.getCities(5)));
     }
 
@@ -137,18 +139,19 @@ public class AppIntegrationTest
      * testing buildCountryList with null
      */
     @Test
-    void buildCityListNullTest(){
+    void buildCityListNullTest() {
         CityReport.printCities(CityReport.buildCityList(null));
     }
 
     /*
     LanguageReport integration tests
      */
+
     /**
      * testing getLanguages with null
      */
     @Test
-    void getLanguagesNullTest(){
+    void getLanguagesNullTest() {
         LanguageReport.printLanguages(LanguageReport.getLanguages(null));
     }
 
@@ -156,7 +159,7 @@ public class AppIntegrationTest
      * testing getLanguages
      */
     @Test
-    void getLanguagesTest(){
+    void getLanguagesTest() {
         LanguageReport.printLanguages(LanguageReport.getLanguages(App.con));
     }
 
@@ -164,41 +167,47 @@ public class AppIntegrationTest
     PopulationReport integration tests
      */
     @Test
-    void ExecutePopulationQueryNullTest(){
+    void ExecutePopulationQueryNullTest() {
         PopulationReport.printPopulation(PopulationReport.ExecuteQuery(null, null, null));
     }
+
     @Test
-    void ExecutePopulationQueryNullQueryTest(){
+    void ExecutePopulationQueryNullQueryTest() {
         PopulationReport.printPopulation(PopulationReport.ExecuteQuery(App.con, null, null));
     }
+
     @Test
-    void ExecutePopulationQueryNullConTest(){
+    void ExecutePopulationQueryNullConTest() {
         PopulationReport.printPopulation(PopulationReport.ExecuteQuery(null, PopulationReport.getContinentPopulation("Europe"), "Europe"));
     }
+
     @Test
-    void ExecutePopulationQueryNullLocationTest(){
-        PopulationReport.printPopulation(PopulationReport.ExecuteQuery(App.con,  PopulationReport.getContinentPopulation("Europe"), null));
+    void ExecutePopulationQueryNullLocationTest() {
+        PopulationReport.printPopulation(PopulationReport.ExecuteQuery(App.con, PopulationReport.getContinentPopulation("Europe"), null));
     }
 
     @Test
-    void ExecutePopulationQueryTest(){
-        PopulationReport.printPopulation(PopulationReport.ExecuteQuery(App.con,  PopulationReport.getContinentPopulation("Europe"), "Europe"));
+    void ExecutePopulationQueryTest() {
+        PopulationReport.printPopulation(PopulationReport.ExecuteQuery(App.con, PopulationReport.getContinentPopulation("Europe"), "Europe"));
     }
 
     @Test
-    void ExecuteSimpleQueryNullTest(){
+    void ExecuteSimpleQueryNullTest() {
         System.out.println(PopulationReport.ExecuteQuery(null, null));
     }
+
     @Test
-    void ExecuteSimpleQueryNullQueryTest(){
+    void ExecuteSimpleQueryNullQueryTest() {
         System.out.println(PopulationReport.ExecuteQuery(App.con, null));
     }
+
     @Test
-    void ExecuteSimpleQueryNullConTest(){
+    void ExecuteSimpleQueryNullConTest() {
         System.out.println(PopulationReport.ExecuteQuery(null, PopulationReport.getWorldPop()));
     }
+
     @Test
-    void ExecuteSimpleQueryTest(){
+    void ExecuteSimpleQueryTest() {
         System.out.println(PopulationReport.ExecuteQuery(App.con, PopulationReport.getWorldPop()));
     }
 }

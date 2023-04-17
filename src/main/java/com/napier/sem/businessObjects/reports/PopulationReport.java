@@ -1,6 +1,7 @@
 package com.napier.sem.businessObjects.reports;
 
 import com.napier.sem.businessObjects.Population;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -129,12 +130,12 @@ public class PopulationReport {
     /**
      * Executes a query on the db and build a detailed population report
      *
-     * @param con the connection to the db
-     * @param query the query to be executed
+     * @param con      the connection to the db
+     * @param query    the query to be executed
      * @param location the place you want the population of
      * @return a detailed Population report
      */
-    public static Population ExecuteQuery(Connection con, String query, String location){
+    public static Population ExecuteQuery(Connection con, String query, String location) {
 
         try {
             // Create an SQL statement
@@ -150,8 +151,7 @@ public class PopulationReport {
             pop.setOutOfCityPopulation(rset.getLong(3));
 
             return pop;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get population details");
             return null;
@@ -161,11 +161,11 @@ public class PopulationReport {
     /**
      * Executes a query on the db and returns only the population
      *
-     * @param con the connection to the db
+     * @param con   the connection to the db
      * @param query the query to be executed
      * @return a string with the total population
      */
-    public static String ExecuteQuery(Connection con, String query){
+    public static String ExecuteQuery(Connection con, String query) {
 
         try {
             // Create an SQL statement
@@ -175,8 +175,7 @@ public class PopulationReport {
             //return population
             rset.next();
             return rset.getString(1);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get population details");
             return null;
@@ -188,15 +187,14 @@ public class PopulationReport {
      *
      * @param population the population report you want to be printed
      */
-    public static void printPopulation(Population population){
+    public static void printPopulation(Population population) {
 
         if (population != null) {
 
             System.out.println("Total population of " + population.getName() + ": " + population.getPopulation());
             System.out.println("Total population in cities of " + population.getName() + ": " + population.getCityPopulation());
             System.out.println("Total population not in cities of " + population.getName() + ": " + population.getOutOfCityPopulation());
-        }
-        else {
+        } else {
 
             System.out.println("couldn't print population details");
         }
