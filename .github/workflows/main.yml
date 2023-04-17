@@ -1,4 +1,4 @@
-name: A workflow for my Hello World App
+name: A workflow for our seMethods group project
 on:
   push:
     branches:
