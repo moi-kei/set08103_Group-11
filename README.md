@@ -10,6 +10,7 @@ Develop Branch![Github Workflow Status (branch)](https://img.shields.io/github/a
 
 [![Releases](https://img.shields.io/github/release/moi-kei/set08103_Group-11/all.svg?style=flat-square)](https://github.com/moi-kei/set08103_Group-11/releases)
 
+[![codecov](https://codecov.io/gh/moi-kei/set08103_Group-11/branch/main/graph/badge.svg?token=OX7X91EOOS)](https://codecov.io/gh/moi-kei/set08103_Group-11)
 
 **SOFTWARE ENGINEERING METHODS GROUP PROJECT**
 ------------------------------------------------------------------------------------------------
