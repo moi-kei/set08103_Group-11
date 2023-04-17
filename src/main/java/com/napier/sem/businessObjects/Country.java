@@ -1,7 +1,7 @@
 package com.napier.sem.businessObjects;
 
 /**
- * Class representing a Country*
+ * Class representing a Country
  * {@code @Authors:}  Michael Mackenzie, Nweke Success
  */
 public class Country
