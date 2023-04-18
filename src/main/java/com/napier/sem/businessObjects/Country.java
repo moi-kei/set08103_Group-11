@@ -1,11 +1,10 @@
 package com.napier.sem.businessObjects;
 
 /**
- * Class representing a Country*
+ * Class representing a Country
  * {@code @Authors:}  Michael Mackenzie, Nweke Success
  */
-public class Country
-{
+public class Country {
     /**
      * Country Code
      */
@@ -36,12 +35,15 @@ public class Country
     private String capital;
 
     // Constructors
+
     /**
      * Default Constructor
      */
-    public Country() {}
+    public Country() {
+    }
 
     // Getters and Setters
+
     /**
      * Returns code property
      */

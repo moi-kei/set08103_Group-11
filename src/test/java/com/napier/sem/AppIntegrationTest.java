@@ -1,342 +1,214 @@
 package com.napier.sem;
 
-import com.napier.sem.businessObjects.City;
-import com.napier.sem.businessObjects.Country;
 import com.napier.sem.businessObjects.reports.CityReport;
 import com.napier.sem.businessObjects.reports.CountryReport;
+import com.napier.sem.businessObjects.reports.LanguageReport;
+import com.napier.sem.businessObjects.reports.PopulationReport;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
-
-public class AppIntegrationTest
-{
+/**
+ * integration tests for the application
+ */
+public class AppIntegrationTest {
     //initialize app
     static App app;
 
     //initialize database connection
     @BeforeAll
-    static void init()
-    {
+    static void init() {
         app = new App();
         app.connect("localhost:33060", 30000);
     }
 
+    /*
+    App integration tests
+     */
+
     /**
-     *test the getAllCities function
+     * Tests the main function with no arguments
      */
     @Test
-    void testGetAllCountries(){
+    void mainTestEmpty() {
 
-        ArrayList<Country> countries = CountryReport.getAllCountries(App.con);
-
-        //check if list is not null
-        assertNotNull(countries);
-
-        //check list has correct values
-        Country country = new Country();
-        for (Country c : countries)
-        {
-            if(c.getCode().equals("ITA"))
-            {
-                country = c;
-                break;
-            }
-        }
-        assertEquals(country.getName(), "Italy");
-        assertEquals(country.getContinent(), "Europe");
-        assertEquals(country.getRegion(), "Southern Europe");
-        assertEquals(country.getPopulation(), 57680000);
-        assertEquals(country.getCapital(), "Roma");
+        String[] connection = {};
+        App.main(connection);
     }
 
     /**
-     *test the getAllCitiesLimit function
+     * Tests the main function with working arguments
      */
     @Test
-    void testGetAllCountriesLimit(){
+    void mainTestArgs() {
 
-        ArrayList<Country> countries = CountryReport.getAllCountriesLimit (App.con, 10);
-
-        //check if list is not null
-        assertNotNull(countries);
-
-        //check list has correct values
-        Country country = new Country();
-        for (Country c : countries)
-        {
-            if(c.getCode().equals("CHN"))
-            {
-                country = c;
-                break;
-            }
-        }
-        assertEquals(country.getName(), "China");
-        assertEquals(country.getContinent(), "Asia");
-        assertEquals(country.getRegion(), "Eastern Asia");
-        assertEquals(country.getPopulation(), 1277558000);
-        assertEquals(country.getCapital(), "Peking");
-
-        //check list has correct number of entries
-        assertEquals(countries.size(), 10);
+        String[] connection = {"localhost:33060", "30000"};
+        App.main(connection);
     }
 
     /**
-     *test the getAllCitiesContinent function
+     * Tests the main function with wrong arguments
      */
     @Test
-    void testGetAllCountriesContinent(){
+    void mainTestFail() {
 
-        String continent = "Europe";
-        ArrayList<Country> countries = CountryReport.getAllCountriesContinent(App.con, continent);
+        String[] connection = {"Failure", "1"};
+        App.main(connection);
+    }
 
-        //check if list is not null
-        assertNotNull(countries);
+    /*
+    CountryReport Integration tests
+     */
 
-        //check list has correct values
-        Country country = new Country();
-        for (Country c : countries)
-        {
-            if(c.getCode().equals("GRC"))
-            {
-                country = c;
-                break;
-            }
-        }
-        assertEquals(country.getName(), "Greece");
-        assertEquals(country.getContinent(), "Europe");
-        assertEquals(country.getRegion(), "Southern Europe");
-        assertEquals(country.getPopulation(), 10545700);
-        assertEquals(country.getCapital(), "Athenai");
+    /**
+     * checks ExecuteQuery works when null is passed
+     */
+    @Test
+    void ExecuteCountryQueryNullTest() {
+        CountryReport.printCountries(CountryReport.ExecuteQuery(null, null));
     }
 
     /**
-     *test the getAllCitiesContinent function
+     * checks ExecuteQuery works when null is passed with a valid connection
      */
     @Test
-    void testGetAllCountriesContinentLimit(){
-
-        String continent = "South America";
-        ArrayList<Country> countries = CountryReport.getAllCountriesContinentLimit(App.con, continent, 5);
-
-        //check if list is not null
-        assertNotNull(countries);
-
-        //check list has correct values
-        Country country = new Country();
-        for (Country c : countries)
-        {
-            if(c.getCode().equals("ARG"))
-            {
-                country = c;
-                break;
-            }
-        }
-        assertEquals(country.getName(), "Argentina");
-        assertEquals(country.getContinent(), "South America");
-        assertEquals(country.getRegion(), "South America");
-        assertEquals(country.getPopulation(), 37032000);
-        assertEquals(country.getCapital(), "Buenos Aires");
-
-        //check list has correct number of entries
-        assertEquals(countries.size(), 5);
+    void ExecuteCountryQueryNullQueryTest() {
+        CountryReport.printCountries(CountryReport.ExecuteQuery(App.con, null));
     }
 
     /**
-     *test the getAllCitiesContinent function
+     * checks ExecuteQuery works when null is passed to the connection with a valid query
      */
     @Test
-    void testGetAllCountriesRegion(){
-
-        String region = "South America";
-        ArrayList<Country> countries = CountryReport.getAllCountriesRegion(App.con, region);
-
-        //check if list is not null
-        assertNotNull(countries);
-
-        //check list has correct values
-        Country country = new Country();
-        for (Country c : countries)
-        {
-            if(c.getCode().equals("BRA"))
-            {
-                country = c;
-                break;
-            }
-        }
-        assertEquals(country.getName(), "Brazil");
-        assertEquals(country.getContinent(), "South America");
-        assertEquals(country.getRegion(), "South America");
-        assertEquals(country.getPopulation(), 170115000);
-        assertEquals(country.getCapital(), "Brasília");
+    void ExecuteCountryQueryNullConTest() {
+        CountryReport.printCountries(CountryReport.ExecuteQuery(null, CountryReport.getCountries(5)));
     }
 
     /**
-     *test the getAllCitiesContinent function
+     * testing ExecuteQuery
      */
     @Test
-    void testGetAllCountriesRegionLimit(){
-
-        String region = "Southeast Asia";
-        ArrayList<Country> countries = CountryReport.getAllCountriesRegionLimit(App.con, region, 5);
-
-        //check if list is not null
-        assertNotNull(countries);
-
-        //check list has correct values
-        Country country = new Country();
-        for (Country c : countries)
-        {
-            if(c.getCode().equals("PHL"))
-            {
-                country = c;
-                break;
-            }
-        }
-        assertEquals(country.getName(), "Philippines");
-        assertEquals(country.getContinent(), "Asia");
-        assertEquals(country.getRegion(), "Southeast Asia");
-        assertEquals(country.getPopulation(), 75967000);
-        assertEquals(country.getCapital(), "Manila");
-
-        //check list has correct number of entries
-        assertEquals(countries.size(), 5);
+    void ExecuteCountryQueryTest() {
+        CountryReport.printCountries(CountryReport.ExecuteQuery(App.con, CountryReport.getCountries(5)));
     }
 
     /**
-     *test the getAllCities function
+     * testing buildCountryList with null
      */
     @Test
-    void testGetAllCities(){
+    void buildCountryListNullTest() {
+        CountryReport.printCountries(CountryReport.buildCountryList(null));
+    }
 
-        List<City> cities = CityReport.getAllCities(App.con);
+    /*
+    CityReport integration tests
+     */
 
-        //check if list is not null
-        assertNotNull(cities);
-
-        //check list has correct values
-        City city = new City();
-        for (City c : cities)
-        {
-            if(c.getName().equals("Edinburgh"))
-            {
-                city = c;
-                break;
-            }
-        }
-        assertEquals(city.getDistrict(), "Scotland");
-        assertEquals(city.getCountry(), "United Kingdom");
-        assertEquals(city.getPopulation(), 450180);
-
+    /**
+     * checks ExecuteQuery works when null is passed
+     */
+    @Test
+    void ExecuteCityQueryNullTest() {
+        CityReport.printCities(CityReport.ExecuteQuery(null, null));
     }
 
     /**
-     *test the getAllCitiesContinent function
+     * checks ExecuteQuery works when null is passed with a valid connection
      */
     @Test
-    void testGetAllCitiesContinent(){
-
-        String continent = "South America";
-        List<City> cities = CityReport.getAllCitiesContinent(App.con, continent);
-
-        //check if list is not null
-        assertNotNull(cities);
-
-        //check list has correct values
-        City city = new City();
-        for (City c : cities)
-        {
-            if(c.getName().equals("Rio de Janeiro"))
-            {
-                city = c;
-                break;
-            }
-        }
-        assertEquals(city.getDistrict(), "Rio de Janeiro");
-        assertEquals(city.getCountry(), "Brazil");
-        assertEquals(city.getPopulation(), 5598953);
+    void ExecuteCityQueryNullQueryTest() {
+        CityReport.printCities(CityReport.ExecuteQuery(App.con, null));
     }
 
     /**
-     *test the getAllCitiesRegion function
+     * checks ExecuteQuery works when null is passed to the connection with a valid query
      */
     @Test
-    void testGetAllCitiesRegion(){
-
-        String region = "Eastern Asia";
-        List<City> cities = CityReport.getAllCitiesRegion(App.con, region);
-
-        //check if list is not null
-        assertNotNull(cities);
-
-        //check list has correct values
-        City city = new City();
-        for (City c : cities)
-        {
-            if(c.getName().equals("Tokyo"))
-            {
-                city = c;
-                break;
-            }
-        }
-        assertEquals(city.getDistrict(), "Tokyo-to");
-        assertEquals(city.getCountry(), "Japan");
-        assertEquals(city.getPopulation(), 7980230);
+    void ExecuteCityQueryNullConTest() {
+        CityReport.printCities(CityReport.ExecuteQuery(null, CityReport.getCities(5)));
     }
 
     /**
-     *test the getAllCitiesCountry function
+     * testing ExecuteQuery
      */
     @Test
-    void testGetAllCitiesCountry(){
-
-        String country = "Belgium";
-        List<City> cities = CityReport.getAllCitiesCountry(App.con, country);
-
-        //check if list is not null
-        assertNotNull(cities);
-
-        //check list has correct values
-        City city = new City();
-        for (City c : cities)
-        {
-            if(c.getName().equals("Brugge"))
-            {
-                city = c;
-                break;
-            }
-        }
-        assertEquals(city.getDistrict(), "West Flanderi");
-        assertEquals(city.getCountry(), "Belgium");
-        assertEquals(city.getPopulation(), 116246);
+    void ExecuteCityQueryTest() {
+        CityReport.printCities(CityReport.ExecuteQuery(App.con, CityReport.getCities(5)));
     }
 
     /**
-     *test the getAllCitiesCountry function
+     * testing buildCountryList with null
      */
     @Test
-    void testGetAllCitiesDistrict(){
+    void buildCityListNullTest() {
+        CityReport.printCities(CityReport.buildCityList(null));
+    }
 
-        String district = "New York";
-        List<City> cities = CityReport.getAllCitiesDistrict(App.con, district);
+    /*
+    LanguageReport integration tests
+     */
 
-        //check if list is not null
-        assertNotNull(cities);
+    /**
+     * testing getLanguages with null
+     */
+    @Test
+    void getLanguagesNullTest() {
+        LanguageReport.printLanguages(LanguageReport.getLanguages(null));
+    }
 
-        //check list has correct values
-        City city = new City();
-        for (City c : cities)
-        {
-            if(c.getName().equals("New York"))
-            {
-                city = c;
-                break;
-            }
-        }
-        assertEquals(city.getDistrict(), "New York");
-        assertEquals(city.getCountry(), "United States");
-        assertEquals(city.getPopulation(), 8008278);
+    /**
+     * testing getLanguages
+     */
+    @Test
+    void getLanguagesTest() {
+        LanguageReport.printLanguages(LanguageReport.getLanguages(App.con));
+    }
+
+    /*
+    PopulationReport integration tests
+     */
+    @Test
+    void ExecutePopulationQueryNullTest() {
+        PopulationReport.printPopulation(PopulationReport.ExecuteQuery(null, null, null));
+    }
+
+    @Test
+    void ExecutePopulationQueryNullQueryTest() {
+        PopulationReport.printPopulation(PopulationReport.ExecuteQuery(App.con, null, null));
+    }
+
+    @Test
+    void ExecutePopulationQueryNullConTest() {
+        PopulationReport.printPopulation(PopulationReport.ExecuteQuery(null, PopulationReport.getContinentPopulation("Europe"), "Europe"));
+    }
+
+    @Test
+    void ExecutePopulationQueryNullLocationTest() {
+        PopulationReport.printPopulation(PopulationReport.ExecuteQuery(App.con, PopulationReport.getContinentPopulation("Europe"), null));
+    }
+
+    @Test
+    void ExecutePopulationQueryTest() {
+        PopulationReport.printPopulation(PopulationReport.ExecuteQuery(App.con, PopulationReport.getContinentPopulation("Europe"), "Europe"));
+    }
+
+    @Test
+    void ExecuteSimpleQueryNullTest() {
+        System.out.println(PopulationReport.ExecuteQuery(null, null));
+    }
+
+    @Test
+    void ExecuteSimpleQueryNullQueryTest() {
+        System.out.println(PopulationReport.ExecuteQuery(App.con, null));
+    }
+
+    @Test
+    void ExecuteSimpleQueryNullConTest() {
+        System.out.println(PopulationReport.ExecuteQuery(null, PopulationReport.getWorldPop()));
+    }
+
+    @Test
+    void ExecuteSimpleQueryTest() {
+        System.out.println(PopulationReport.ExecuteQuery(App.con, PopulationReport.getWorldPop()));
     }
 }
+

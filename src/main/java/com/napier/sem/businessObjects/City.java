@@ -2,7 +2,7 @@ package com.napier.sem.businessObjects;
 
 /**
  * Class representing a City
-
+ * <p>
  * {@code @Authors:}  Michael Mackenzie, Nweke Success
  */
 public class City {
